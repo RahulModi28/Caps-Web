@@ -5,7 +5,7 @@ export interface Campus {
   pageUrl: string;
   coordinates: [number, number];
   displayName: string;
-  status: string;
+  status: "Publish" | "Draft";
 }
 
 export interface Alumni {
@@ -17,8 +17,8 @@ export interface Alumni {
 }
 
 export interface Testimonial {
-  volunteerName: string;
-  testimonial: string;
+  name: string;
+  quote: string;
   role: string;
   wing: string;
   year: string;
@@ -64,7 +64,7 @@ export const campuses: Campus[] = [
   },
   {
     name: "Pune Lavasa",
-    location: "Campus",
+    location: "Pune",
     officeAddress: "CHRIST Pune Lavasa Campus",
     pageUrl: "https://lavasa.christuniversity.in/center/C/CAPS2",
     coordinates: [18.411698436703016, 73.5073153346072],
@@ -73,7 +73,7 @@ export const campuses: Campus[] = [
   },
   {
     name: "Delhi NCR",
-    location: "Campus",
+    location: "Delhi NCR",
     officeAddress: "CHRIST DELHI NCR Campus",
     pageUrl: "https://caps.christuniversity.in/ncr/home",
     coordinates: [28.68366113458173, 77.41056398968146],
@@ -95,24 +95,24 @@ export const alumniList: Alumni[] = [
 
 export const testimonialsList: Testimonial[] = [
   {
-    volunteerName: "Al Sakib Hami",
-    testimonial: "CAPS has been more than just a centre to me—it has been a space where I’ve grown, learned, and built meaningful connections. Being part of the Operations Committee of CAPS has given me a better understanding of the behind the scene works.",
+    name: "Al Sakib Hami",
+    quote: "CAPS has been more than just a centre to me—it has been a space where I’ve grown, learned, and built meaningful connections. Being part of the Operations Committee of CAPS has given me a better understanding of the behind the scene works.",
     role: "Team Lead",
     wing: "Operations Committee",
     year: "2025 - 2026",
     campus: "Central Campus"
   },
   {
-    volunteerName: "Gowri Ananth",
-    testimonial: "From a curious volunteer to being spoken about as, 'There walks a Capsite', CAPS has moulded me into a confident, efficient trainer. I'm thankful to the unwavering mentorship and heartfelt support.",
+    name: "Gowri Ananth",
+    quote: "From a curious volunteer to being spoken about as, 'There walks a Capsite', CAPS has moulded me into a confident, efficient trainer. I'm thankful to the unwavering mentorship and heartfelt support.",
     role: "Level 1 Volunteer",
     wing: "Group Peer Training",
     year: "2024 - 2025",
     campus: "Central Campus"
   },
   {
-    volunteerName: "Yashica Mhatre",
-    testimonial: "I’ve grown under the guidance of incredible mentors, learning from both my successes and failures. Stepping out of my comfort zone, I learned to lead with confidence and take charge of projects.",
+    name: "Yashica Mhatre",
+    quote: "I’ve grown under the guidance of incredible mentors, learning from both my successes and failures. Stepping out of my comfort zone, I learned to lead with confidence and take charge of projects.",
     role: "Team Lead",
     wing: "Psychometric Assessment",
     year: "2024 - 2025",
