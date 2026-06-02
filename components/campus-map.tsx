@@ -37,7 +37,7 @@ export default function CampusMap({ activeCampus, campuses }: CampusMapProps) {
       />
       <ChangeView center={activeCampus.coordinates} />
       {campuses.map((c) => (
-        <Marker key={c.name} position={c.coordinates}>
+        <Marker key={c.name} position={c.coordinates} alt={c.displayName}>
           <Popup>
             <div className="text-center font-sans">
               <strong className="text-primary-navy">{c.displayName}</strong>

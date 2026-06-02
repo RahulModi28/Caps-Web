@@ -43,13 +43,23 @@ export default function CampusNetwork() {
           {/* Left panel: Campus selector cards */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <div className="space-y-1">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+              {/* Desktop Label (rendered as span for accessibility correctness since it is not a form input on desktop) */}
+              <span className="hidden lg:block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Select Campus
+              </span>
+              
+              {/* Mobile Label */}
+              <label 
+                htmlFor="campus-select"
+                className="block lg:hidden text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500"
+              >
                 Select Campus
               </label>
               
               {/* Mobile Dropdown Selector */}
               <div className="relative lg:hidden">
                 <select
+                  id="campus-select"
                   aria-label="Select campus location"
                   className="w-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-accent-gold focus:border-accent-gold focus:outline-none text-sm font-medium appearance-none cursor-pointer"
                   value={activeCampus.name}
@@ -73,13 +83,14 @@ export default function CampusNetwork() {
             </div>
 
             {/* Desktop Campus Cards list */}
-            <div className="hidden lg:flex flex-col gap-3 overflow-y-auto max-h-[500px] pr-2 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800">
+            <div className="hidden lg:flex flex-col gap-3 overflow-y-auto max-h-[500px] pr-2">
               {campuses.map((campus) => {
                 const isActive = activeCampus.name === campus.name;
                 return (
                   <button
                     key={campus.name}
                     onClick={() => setActiveCampus(campus)}
+                    aria-current={isActive ? "true" : "false"}
                     className={`text-left p-4 rounded-xl border transition-all duration-300 flex flex-col gap-2 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold ${
                       isActive
                         ? "bg-primary-navy dark:bg-secondary-dark-slate border-accent-gold text-white shadow-md shadow-accent-gold/5"
@@ -87,9 +98,9 @@ export default function CampusNetwork() {
                     }`}
                   >
                     <div className="flex justify-between items-start gap-2">
-                      <h3 className={`font-bold text-sm leading-tight transition-colors ${isActive ? "text-accent-gold" : "text-primary-navy dark:text-slate-200 group-hover:text-primary-navy/80"}`}>
+                      <span className={`font-bold text-sm leading-tight transition-colors ${isActive ? "text-accent-gold" : "text-primary-navy dark:text-slate-200 group-hover:text-primary-navy/80"}`}>
                         {campus.name}
-                      </h3>
+                      </span>
                       <span className={`text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full shrink-0 ${
                         isActive 
                           ? "bg-white/15 text-white" 
@@ -129,13 +140,14 @@ export default function CampusNetwork() {
                 >
                   <Globe className="h-3.5 w-3.5" />
                   Campus Portal
+                  <span className="sr-only">(opens in new tab)</span>
                 </a>
               </div>
             </div>
           </div>
 
           {/* Right panel: Map Display */}
-          <div className="lg:col-span-3 h-[320px] sm:h-[400px] lg:h-full min-h-[350px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 z-10 relative bg-slate-100 dark:bg-slate-900">
+          <div className="lg:col-span-3 h-[350px] sm:h-[400px] lg:h-full rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 z-10 relative bg-slate-100 dark:bg-slate-900">
             {mounted ? (
               <CampusMap activeCampus={activeCampus} campuses={campuses} />
             ) : (
