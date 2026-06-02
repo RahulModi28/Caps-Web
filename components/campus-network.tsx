@@ -21,7 +21,8 @@ export default function CampusNetwork() {
   const [activeCampus, setActiveCampus] = useState<Campus>(campuses[0]);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
