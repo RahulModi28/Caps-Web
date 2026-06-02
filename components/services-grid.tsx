@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PenTool, Users, Network, MessageSquare, Brain } from "lucide-react";
+import { motion } from "framer-motion";
+import { PenTool, Users, Network, MessageSquare, Brain, type LucideIcon } from "lucide-react";
 
 interface Service {
   title: string;
   subtitle: string;
   desc: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
 }
 
 export default function ServicesGrid() {
@@ -53,8 +53,15 @@ export default function ServicesGrid() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  // Prevent sticky mobile hover states by checking if browser supports hover
+  const handleMouseEnter = (index: number) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+      setHoveredIndex(index);
+    }
+  };
+
   return (
-    <section id="services" className="py-24 bg-background-light dark:bg-black px-6 transition-colors duration-500">
+    <section id="services" className="py-16 md:py-24 bg-background-light dark:bg-black px-6 transition-colors duration-500">
       <div className="max-w-7xl mx-auto space-y-16">
         <motion.div 
           className="space-y-4 text-center"
@@ -82,11 +89,21 @@ export default function ServicesGrid() {
 
             return (
               <motion.div
-                key={index}
-                className="relative w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] min-h-[180px] rounded-2xl overflow-hidden cursor-pointer bg-primary-navy dark:bg-secondary-dark-slate text-white border border-white/10 dark:border-slate-800 flex flex-col justify-between p-6 shadow-md transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-gold/5"
-                onMouseEnter={() => setHoveredIndex(index)}
+                key={service.title}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                aria-controls={`service-desc-${index}`}
+                className="relative w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] min-h-[180px] rounded-2xl overflow-hidden cursor-pointer bg-primary-navy dark:bg-secondary-dark-slate text-white border border-white/10 dark:border-slate-800 flex flex-col justify-between p-6 shadow-md transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-gold/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-gold focus-visible:outline-offset-2"
+                onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleCardClick(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleCardClick(index);
+                  }
+                }}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
@@ -110,7 +127,7 @@ export default function ServicesGrid() {
                   <h3 className="text-xl font-bold tracking-tight text-white leading-snug">
                     {service.title}
                   </h3>
-                  <div className="p-2.5 bg-white/10 dark:bg-slate-800/60 rounded-xl border border-white/5 shrink-0 text-accent-gold transition-transform duration-300">
+                  <div className="p-2.5 bg-white/10 dark:bg-slate-800/60 rounded-xl border border-white/5 shrink-0 text-accent-gold">
                     <Icon className="h-6 w-6" />
                   </div>
                 </div>
@@ -119,6 +136,8 @@ export default function ServicesGrid() {
                 <div className="relative z-10 mt-6">
                   {/* Smooth height and opacity transitions */}
                   <motion.div
+                    id={`service-desc-${index}`}
+                    aria-hidden={!isExpanded}
                     animate={{
                       height: isExpanded ? "auto" : 0,
                       opacity: isExpanded ? 1 : 0,
