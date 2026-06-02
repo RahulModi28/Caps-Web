@@ -11,7 +11,7 @@ export default function HeaderNavigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,7 +34,7 @@ export default function HeaderNavigation() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo elements switch text colors dynamically on scroll */}
-        <div className="flex items-center gap-2">
+        <a href="#home" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <span
             className={`text-2xl font-bold tracking-wider transition-colors duration-300 ${
               isScrolled ? "text-primary-navy" : "text-white"
@@ -50,7 +50,7 @@ export default function HeaderNavigation() {
           >
             Centre for Academic Support
           </span>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
@@ -73,6 +73,7 @@ export default function HeaderNavigation() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger
+              aria-label="Open navigation menu"
               className={`p-2 rounded-lg transition-colors duration-300 ${
                 isScrolled ? "text-slate-800 dark:text-white" : "text-white"
               }`}
