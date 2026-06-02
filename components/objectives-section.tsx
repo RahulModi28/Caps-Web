@@ -57,8 +57,8 @@ export default function ObjectivesSection() {
             <motion.div 
               key={i} 
               variants={cardVariants}
-              whileHover={{ scale: 1.02, borderColor: "#bb8d2f" }}
-              className="flex gap-4 items-start bg-slate-900/50 p-6 rounded-xl border border-slate-800 transition-colors duration-300"
+              whileHover={{ scale: 1.02 }}
+              className="flex gap-4 items-start bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-accent transition-[border-color,transform] duration-300"
             >
               <CheckCircle className="h-6 w-6 text-accent-gold shrink-0 mt-1" />
               <p className="text-slate-300 leading-relaxed text-sm">{obj}</p>

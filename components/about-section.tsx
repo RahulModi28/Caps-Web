@@ -2,14 +2,25 @@
 
 import { motion } from "framer-motion";
 
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+} as const;
+
+const cardVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0 }
+} as const;
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <motion.div 
           className="space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
@@ -26,12 +37,12 @@ export default function AboutSection() {
         
         <div className="space-y-6">
           <motion.div 
-            className="p-6 bg-white dark:bg-secondary-dark-slate rounded-2xl border-l-4 border-accent-gold shadow-sm dark:shadow-none hover:shadow-md transition-all duration-300 border border-slate-100 dark:border-slate-800 border-l-accent-gold dark:border-l-accent-gold"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="p-6 bg-white dark:bg-secondary-dark-slate rounded-2xl border-l-4 border-l-accent-gold shadow-sm dark:shadow-none hover:shadow-md hover:-translate-y-1 transition-[transform,box-shadow] duration-300 border border-slate-100 dark:border-slate-800"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ y: -4 }}
           >
             <h3 className="text-xl font-bold text-primary-navy dark:text-slate-100 mb-2">Vision</h3>
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -40,12 +51,12 @@ export default function AboutSection() {
           </motion.div>
 
           <motion.div 
-            className="p-6 bg-white dark:bg-secondary-dark-slate rounded-2xl border-l-4 border-accent-gold shadow-sm dark:shadow-none hover:shadow-md transition-all duration-300 border border-slate-100 dark:border-slate-800 border-l-accent-gold dark:border-l-accent-gold"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="p-6 bg-white dark:bg-secondary-dark-slate rounded-2xl border-l-4 border-l-accent-gold shadow-sm dark:shadow-none hover:shadow-md hover:-translate-y-1 transition-[transform,box-shadow] duration-300 border border-slate-100 dark:border-slate-800"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            whileHover={{ y: -4 }}
           >
             <h3 className="text-xl font-bold text-primary-navy dark:text-slate-100 mb-2">Mission</h3>
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
