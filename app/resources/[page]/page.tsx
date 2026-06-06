@@ -55,6 +55,7 @@ export default async function ResourcePage({ params }: Props) {
         const { data: faqs, error } = await supabase!
           .from('faqs')
           .select('*')
+          .eq('category', 'General')
           .order('display_order', { ascending: true });
         
         if (!error && faqs && faqs.length > 0) {

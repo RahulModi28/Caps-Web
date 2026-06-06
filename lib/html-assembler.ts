@@ -140,7 +140,12 @@ export function injectReferenceMaterials(html: string, materials: any[]): string
  * Injects FAQs into the FAQ page HTML structure.
  */
 export function injectFAQs(html: string, faqs: any[]): string {
-  const faqsHtml = faqs.map(f => `
+  const faqsHtml = faqs.map(f => {
+    const formattedAnswer = f.answer.trim().startsWith('<p>') || f.answer.trim().startsWith('<div')
+      ? f.answer
+      : `<p>${f.answer}</p>`;
+
+    return `
     <details itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question" data-group="faq" class="accordions_item_component">
       <summary class="accordions_item_toggle">
         <p itemprop="name" class="accordions_item_title text-weight-medium">${f.question}</p>
@@ -151,15 +156,38 @@ export function injectFAQs(html: string, faqs: any[]): string {
       </summary>
       <div itemtype="https://schema.org/Answer" itemscope="" itemprop="acceptedAnswer" class="accordions_item_content-wrapper">
         <div class="rich-text w-richtext">
-          <p>${f.answer}</p>
+          ${formattedAnswer}
         </div>
         <div class="accordions_item_spacer"></div>
       </div>
     </details>
-  `).join('\n');
+    `;
+  }).join('\n');
 
   return replaceInnerDiv(html, 'class="faq_accordions"', faqsHtml);
 }
+
+/**
+ * Injects workshops into the workshop schedules page HTML structure.
+ */
+export function injectWorkshops(html: string, workshops: any[]): string {
+  const cardsHtml = workshops.map(w => `
+    <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card">
+      <div class="card-stack_card_icon-wrapper">
+        <span data-wf--global-content-icon--icon="${w.icon_name || 'plant'}" aria-hidden="true" style="--width: 100%;" class="icon_content"></span>
+      </div>
+      <h4 class="card-stack_title">${w.title}</h4>
+      <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
+        <p><strong>Date:</strong> ${w.date_text}</p>
+        <p><strong>Venue:</strong> ${w.venue}</p>
+        <p>${w.description}</p>
+      </div>
+    </div>
+  `).join('\n');
+
+  return replaceInnerDiv(html, 'class="card-stack_cards-list"', cardsHtml);
+}
+
 
 /**
  * Injects timeline steps into the timeline page HTML structure.

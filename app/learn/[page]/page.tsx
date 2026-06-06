@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { assemblePage, loadBodyContent, injectSelfGuidedModules, injectTimelineSteps } from "@/lib/html-assembler";
+import { assemblePage, loadBodyContent, injectSelfGuidedModules, injectTimelineSteps, injectWorkshops } from "@/lib/html-assembler";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export const revalidate = 60; // Revalidate page updates every 60 seconds
@@ -69,6 +69,15 @@ export default async function LearnPage({ params }: Props) {
         
         if (!error && steps && steps.length > 0) {
           bodyContent = injectTimelineSteps(bodyContent, steps);
+        }
+      } else if (page === "workshop-schedules") {
+        const { data: workshops, error } = await supabase!
+          .from('workshops')
+          .select('*')
+          .order('display_order', { ascending: true });
+        
+        if (!error && workshops && workshops.length > 0) {
+          bodyContent = injectWorkshops(bodyContent, workshops);
         }
       }
     } catch (e) {

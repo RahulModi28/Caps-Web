@@ -1,3 +1,6 @@
+-- 0. Clean existing data for the campus (cascade deletes all dependent tables)
+DELETE FROM campuses WHERE id = '00000000-0000-0000-0000-000000000001';
+
 -- 1. Insert Default Campus (Christ University Yeshwanthpur)
 -- We use a fixed UUID so references remain stable across environments
 INSERT INTO campuses (id, name, domain, location)
@@ -125,6 +128,9 @@ VALUES
 
 
 -- 5. Insert FAQs
+-- We clear them or insert them. For SQL script, we can do TRUNCATE/DELETE first, or use INSERT ON CONFLICT. But since there is no unique constraint on (campus_id, question), we can just DELETE first.
+DELETE FROM faqs;
+
 INSERT INTO faqs (campus_id, category, question, answer, display_order)
 VALUES
 (
@@ -154,6 +160,90 @@ VALUES
     'How do I become a CAPS volunteer?',
     'Keep an eye on student portal announcements at the start of each semester. Applications open with briefing seminars, followed by registration submissions and brief interview audits.',
     3
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'one-on-one-peer-training',
+    'What materials should I upload before the session?',
+    'Please upload any assignment guidelines, draft documents (Word or PDF format), and outline sheets. Sharing these 24 hours in advance gives your peer trainer time to prepare notes and structural reviews.',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'one-on-one-peer-training',
+    'Can I reschedule a session?',
+    'Yes, you can cancel or reschedule up to 12 hours before the session. Failure to attend without informing the mentor thrice will suspend booking rights for the semester.',
+    1
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'group-peer-training',
+    'Are certificates provided for group workshops?',
+    'Yes, all active participants who attend all days of a bootcamp and complete the exit quiz will receive a CAPS Certificate of Participation.',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'group-peer-training',
+    'Can I request a prep circle for a specific subject?',
+    'Absolutely! If a group of 5 or more students require support in a specific course module, you can submit a prep circle request form at the CAPS coordinator desk in Block B Room 227.',
+    1
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'connect-wide',
+    'Who can participate in community outreach projects?',
+    'Community outreach projects are open to all registered student volunteers. Selection for specific drives depends on past session engagement and brief interviews conducted by the Connect Wide lead.',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'connect-wide',
+    'How do I submit an alumni nomination?',
+    'If you know a distinguished CAPS alumnus who would be interested in conducting a webinar, please email their profile details to the Media & PR committee desk or the Connect Wide Lead.',
+    1
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'research-assessment',
+    'What is the cost of psychometric tests at CAPS?',
+    'All psychometric learning diagnostic tests and feedback circles are conducted completely free of charge for all registered students of Christ University.',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'research-assessment',
+    'Can the mentor write the research paper for me?',
+    'No. CAPS operates on a collaborative feedback model. Mentors guide, critique, and provide resources to improve your writing and design, but do not write, rewrite, or complete your research papers for you.',
+    1
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'learning-development',
+    'L&D Student Coordinator',
+    '<p>Email: <a href="mailto:learning.dev@caps.christuniversity.edu.in">learning.dev@caps.christuniversity.edu.in</a></p><p>Office: Block B Room 227 (CAPS Coordinator Hub)</p>',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'media-pr',
+    'Media & PR Student Lead',
+    '<p>Email: <a href="mailto:media.pr@caps.christuniversity.edu.in">media.pr@caps.christuniversity.edu.in</a></p><p>Office: Floor 10 Central Block (Academic Desk)</p>',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'operations-analytics',
+    'Operations Team Lead',
+    '<p>Email: <a href="mailto:ops.analytics@caps.christuniversity.edu.in">ops.analytics@caps.christuniversity.edu.in</a></p><p>Office: Room 227, Block B, Ground Floor (CAPS Desk)</p>',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'tech-tank',
+    'Tech Tank Coordinator',
+    '<p>Email: <a href="mailto:techtank@caps.christuniversity.edu.in">techtank@caps.christuniversity.edu.in</a></p><p>Office: Floor 10 Central Block (Tech Lab)</p>',
+    0
 );
 
 
@@ -187,4 +277,37 @@ VALUES
     4,
     'Regular Schedule',
     'Meet weekly for study sessions, revision runs, practice worksheets, and progress reviews.'
+);
+
+-- 7. Insert Workshops
+DELETE FROM workshops;
+
+INSERT INTO workshops (campus_id, title, date_text, venue, description, icon_name, display_order)
+VALUES
+(
+    '00000000-0000-0000-0000-000000000001',
+    'VBA and Excel Bootcamp',
+    'June 15-18',
+    'Floor 9 Central Block, Room 1006',
+    'An intensive 4-day bootcamp covering macros, loops, variables, and automated sheet models.',
+    'plant',
+    0
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'Research Writing Circle',
+    'June 22',
+    'Floor 1 Academic Block',
+    'Focuses on literature review synthesis, referencing formatting, and drafting abstracts.',
+    'star',
+    1
+),
+(
+    '00000000-0000-0000-0000-000000000001',
+    'Mid-Sem Math Revision',
+    'July 2-5',
+    'Floor 9 Central Block',
+    'Revision circle on advanced calculus, matrices, and linear algebra modules before exam cycles.',
+    'globe',
+    2
 );

@@ -164,9 +164,14 @@ async function seed() {
 
   // 5. FAQs
   console.log('5. Seeding FAQs...');
+  
+  // Clear existing FAQs first to avoid duplicates when running seeder multiple times
+  await supabase.from('faqs').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+
   const { error: faqsError } = await supabase
     .from('faqs')
     .insert([
+      // General FAQs
       {
         campus_id: DEFAULT_CAMPUS_ID,
         category: 'General',
@@ -195,6 +200,98 @@ async function seed() {
         answer: 'Keep an eye on student portal announcements at the start of each semester. Applications open with briefing seminars, followed by registration submissions and brief interview audits.',
         display_order: 3,
       },
+      // wings/one-on-one-peer-training
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'one-on-one-peer-training',
+        question: 'What materials should I upload before the session?',
+        answer: 'Please upload any assignment guidelines, draft documents (Word or PDF format), and outline sheets. Sharing these 24 hours in advance gives your peer trainer time to prepare notes and structural reviews.',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'one-on-one-peer-training',
+        question: 'Can I reschedule a session?',
+        answer: 'Yes, you can cancel or reschedule up to 12 hours before the session. Failure to attend without informing the mentor thrice will suspend booking rights for the semester.',
+        display_order: 1,
+      },
+      // wings/group-peer-training
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'group-peer-training',
+        question: 'Are certificates provided for group workshops?',
+        answer: 'Yes, all active participants who attend all days of a bootcamp and complete the exit quiz will receive a CAPS Certificate of Participation.',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'group-peer-training',
+        question: 'Can I request a prep circle for a specific subject?',
+        answer: 'Absolutely! If a group of 5 or more students require support in a specific course module, you can submit a prep circle request form at the CAPS coordinator desk in Block B Room 227.',
+        display_order: 1,
+      },
+      // wings/connect-wide
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'connect-wide',
+        question: 'Who can participate in community outreach projects?',
+        answer: 'Community outreach projects are open to all registered student volunteers. Selection for specific drives depends on past session engagement and brief interviews conducted by the Connect Wide lead.',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'connect-wide',
+        question: 'How do I submit an alumni nomination?',
+        answer: 'If you know a distinguished CAPS alumnus who would be interested in conducting a webinar, please email their profile details to the Media & PR committee desk or the Connect Wide Lead.',
+        display_order: 1,
+      },
+      // wings/research-assessment
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'research-assessment',
+        question: 'What is the cost of psychometric tests at CAPS?',
+        answer: 'All psychometric learning diagnostic tests and feedback circles are conducted completely free of charge for all registered students of Christ University.',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'research-assessment',
+        question: 'Can the mentor write the research paper for me?',
+        answer: 'No. CAPS operates on a collaborative feedback model. Mentors guide, critique, and provide resources to improve your writing and design, but do not write, rewrite, or complete your research papers for you.',
+        display_order: 1,
+      },
+      // committees/learning-development
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'learning-development',
+        question: 'L&D Student Coordinator',
+        answer: '<p>Email: <a href="mailto:learning.dev@caps.christuniversity.edu.in">learning.dev@caps.christuniversity.edu.in</a></p><p>Office: Block B Room 227 (CAPS Coordinator Hub)</p>',
+        display_order: 0,
+      },
+      // committees/media-pr
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'media-pr',
+        question: 'Media & PR Student Lead',
+        answer: '<p>Email: <a href="mailto:media.pr@caps.christuniversity.edu.in">media.pr@caps.christuniversity.edu.in</a></p><p>Office: Floor 10 Central Block (Academic Desk)</p>',
+        display_order: 0,
+      },
+      // committees/operations-analytics
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'operations-analytics',
+        question: 'Operations Team Lead',
+        answer: '<p>Email: <a href="mailto:ops.analytics@caps.christuniversity.edu.in">ops.analytics@caps.christuniversity.edu.in</a></p><p>Office: Room 227, Block B, Ground Floor (CAPS Desk)</p>',
+        display_order: 0,
+      },
+      // committees/tech-tank
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'tech-tank',
+        question: 'Tech Tank Coordinator',
+        answer: '<p>Email: <a href="mailto:techtank@caps.christuniversity.edu.in">techtank@caps.christuniversity.edu.in</a></p><p>Office: Floor 10 Central Block (Tech Lab)</p>',
+        display_order: 0,
+      }
     ]);
 
   if (faqsError) {
@@ -238,6 +335,48 @@ async function seed() {
 
   if (timelinesError) {
     console.error('Error seeding timeline steps:', timelinesError.message);
+  }
+
+  // 7. Workshops
+  console.log('7. Seeding Workshops...');
+  
+  // Clear existing workshops to avoid duplicates
+  await supabase.from('workshops').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+
+  const { error: workshopsError } = await supabase
+    .from('workshops')
+    .insert([
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        title: 'VBA and Excel Bootcamp',
+        date_text: 'June 15-18',
+        venue: 'Floor 9 Central Block, Room 1006',
+        description: 'An intensive 4-day bootcamp covering macros, loops, variables, and automated sheet models.',
+        icon_name: 'plant',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        title: 'Research Writing Circle',
+        date_text: 'June 22',
+        venue: 'Floor 1 Academic Block',
+        description: 'Focuses on literature review synthesis, referencing formatting, and drafting abstracts.',
+        icon_name: 'star',
+        display_order: 1,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        title: 'Mid-Sem Math Revision',
+        date_text: 'July 2-5',
+        venue: 'Floor 9 Central Block',
+        description: 'Revision circle on advanced calculus, matrices, and linear algebra modules before exam cycles.',
+        icon_name: 'globe',
+        display_order: 2,
+      },
+    ]);
+
+  if (workshopsError) {
+    console.error('Error seeding workshops:', workshopsError.message);
   }
 
   console.log('Seeding process completed!');

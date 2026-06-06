@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
+import { assemblePage, loadBodyContent, injectFAQs } from "@/lib/html-assembler";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+
+export const revalidate = 60; // Revalidate page updates every 60 seconds
 
 interface Props {
   params: Promise<{ committee: string }>;
@@ -44,7 +47,24 @@ export default async function CommitteePage({ params }: Props) {
   const config = committeeMap[committee];
   if (!config) notFound();
 
-  const bodyContent = loadBodyContent(config.file);
+  let bodyContent = loadBodyContent(config.file);
+
+  if (isSupabaseConfigured()) {
+    try {
+      const { data: faqs, error } = await supabase!
+        .from('faqs')
+        .select('*')
+        .eq('category', committee)
+        .order('display_order', { ascending: true });
+
+      if (!error && faqs && faqs.length > 0) {
+        bodyContent = injectFAQs(bodyContent, faqs);
+      }
+    } catch (e) {
+      console.error(`Error loading dynamic FAQs for committee /committees/${committee} from Supabase:`, e);
+    }
+  }
+
   const assembledHtml = assemblePage(bodyContent, `/committees/${committee}`);
 
   return (

@@ -94,3 +94,21 @@ CREATE TABLE timeline_steps (
 -- Enable RLS for timelines
 ALTER TABLE timeline_steps ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read access to timeline_steps" ON timeline_steps FOR SELECT USING (true);
+
+-- 7. WORKSHOPS SCHEDULES
+CREATE TABLE workshops (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    campus_id UUID NOT NULL REFERENCES campuses(id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    date_text VARCHAR(100) NOT NULL,
+    venue VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    icon_name VARCHAR(100) DEFAULT 'plant',
+    display_order INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Enable RLS for workshops
+ALTER TABLE workshops ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read access to workshops" ON workshops FOR SELECT USING (true);
+
