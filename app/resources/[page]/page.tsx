@@ -61,6 +61,16 @@ export default async function ResourcePage({ params }: Props) {
         if (!error && faqs && faqs.length > 0) {
           bodyContent = injectFAQs(bodyContent, faqs);
         }
+      } else if (page === "session-guidelines") {
+        const { data: faqs, error } = await supabase!
+          .from('faqs')
+          .select('*')
+          .eq('category', 'session-guidelines')
+          .order('display_order', { ascending: true });
+        
+        if (!error && faqs && faqs.length > 0) {
+          bodyContent = injectFAQs(bodyContent, faqs);
+        }
       } else if (page === "reference-materials") {
         const { data: materials, error } = await supabase!
           .from('reference_materials')

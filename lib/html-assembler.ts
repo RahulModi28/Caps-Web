@@ -141,7 +141,7 @@ export function injectReferenceMaterials(html: string, materials: any[]): string
  */
 export function injectFAQs(html: string, faqs: any[]): string {
   const faqsHtml = faqs.map(f => {
-    const formattedAnswer = f.answer.trim().startsWith('<p>') || f.answer.trim().startsWith('<div')
+    const formattedAnswer = f.answer.trim().startsWith('<')
       ? f.answer
       : `<p>${f.answer}</p>`;
 

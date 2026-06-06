@@ -291,6 +291,57 @@ async function seed() {
         question: 'Tech Tank Coordinator',
         answer: '<p>Email: <a href="mailto:techtank@caps.christuniversity.edu.in">techtank@caps.christuniversity.edu.in</a></p><p>Office: Floor 10 Central Block (Tech Lab)</p>',
         display_order: 0,
+      },
+      // about/leadership-governance
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'leadership-governance',
+        question: 'What is the Centre for Academic and Professional Support (CAPS)?',
+        answer: 'CAPS is a student-centric platform at CHRIST (Deemed to be University), Yeshwanthpur Campus, designed to facilitate academic excellence and professional readiness. We offer peer-to-peer mentoring, specialized workshops, writing support, and personal development opportunities to help students transition successfully into their professional careers.',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'leadership-governance',
+        question: 'What are the different wings of CAPS and what services do they offer?',
+        answer: 'CAPS operates through specialized wings to cover all aspects of student growth: <strong>One on One Peer Training</strong> offers individualized mentoring sessions focused on academic subjects, communication, and soft skills; <strong>Group Peer Training</strong> provides interactive group sessions, skill bootcamps, and exam preparation circles; <strong>Connect Wide</strong> drives extracurricular activities, university-wide events, and external community networking; and <strong>Research & Assessment</strong> supports student research initiatives, project guidance, and capability assessments.',
+        display_order: 1,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'leadership-governance',
+        question: 'How can I book a session or register for CAPS workshops?',
+        answer: 'Students can easily book a session by clicking the <strong>"BOOK A SESSION"</strong> button in the main navigation header or by visiting the CAPS portal directly. From the portal, you can select your preferred wing, choose a mentor, and schedule a convenient time slot.',
+        display_order: 2,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'leadership-governance',
+        question: 'How can I join CAPS as a student coordinator, mentor, or team lead?',
+        answer: 'CAPS recruits passionate student coordinators, mentors, and team leads at the start of each semester. Applications open university-wide, followed by a selection process based on academic proficiency, leadership skills, and peer coaching capability. Keep an eye on our announcements and social channels for application links.',
+        display_order: 3,
+      },
+      // resources/session-guidelines
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'session-guidelines',
+        question: 'Before the Session',
+        answer: '<ul><li><strong>Upload Draft Materials:</strong> Submit your draft paper, prompt, data sheet, or project outline at least 24 hours prior to the session. This helps your trainer prepare customized feedback.</li><li><strong>Be Punctual:</strong> Arrive 5 minutes before the scheduled slot at block B room 227 or connect to the virtual call link on time.</li><li><strong>Clarify Goals:</strong> Have a specific question or topic in mind that you want to resolve during the 45-minute session.</li></ul>',
+        display_order: 0,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'session-guidelines',
+        question: 'During the Session',
+        answer: '<ul><li><strong>Collaborative Exchange:</strong> CAPS is a coaching center, not a writing or correction factory. Peer trainers guide you; they will not write your papers or solve assignments for you.</li><li><strong>Active Participation:</strong> Bring a notebook or laptop, take notes, ask clarifying questions, and participate in exercises.</li><li><strong>Maintain Mutual Respect:</strong> Engage professionally, respect the peer trainers\' time, and value constructive critique.</li></ul>',
+        display_order: 1,
+      },
+      {
+        campus_id: DEFAULT_CAMPUS_ID,
+        category: 'session-guidelines',
+        question: 'Cancellation & No-Show Policy',
+        answer: '<ul><li><strong>Cancel in Advance:</strong> If you cannot make it, reschedule or cancel at least 12 hours prior. This allows other students on the waitlist to claim the slot.</li><li><strong>Missed Sessions Policy:</strong> Three consecutive or non-consecutive no-shows without notification will result in a suspension of your booking privileges for the remainder of the semester.</li><li><strong>Emergency Circumstances:</strong> If you miss a slot due to medical reasons or scheduled classes, contact the operations desk to reactivate your profile.</li></ul>',
+        display_order: 2,
       }
     ]);
 
