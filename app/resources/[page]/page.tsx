@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
+import { assemblePage, loadBodyContent, injectFAQs, injectReferenceMaterials } from "@/lib/html-assembler";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 interface Props {
   params: Promise<{ page: string }>;
@@ -44,7 +45,34 @@ export default async function ResourcePage({ params }: Props) {
   const config = resourceMap[page];
   if (!config) notFound();
 
-  const bodyContent = loadBodyContent(config.file);
+  let bodyContent = loadBodyContent(config.file);
+
+  if (isSupabaseConfigured()) {
+    try {
+      if (page === "faqs") {
+        const { data: faqs, error } = await supabase!
+          .from('faqs')
+          .select('*')
+          .order('display_order', { ascending: true });
+        
+        if (!error && faqs && faqs.length > 0) {
+          bodyContent = injectFAQs(bodyContent, faqs);
+        }
+      } else if (page === "reference-materials") {
+        const { data: materials, error } = await supabase!
+          .from('reference_materials')
+          .select('*')
+          .order('display_order', { ascending: true });
+        
+        if (!error && materials && materials.length > 0) {
+          bodyContent = injectReferenceMaterials(bodyContent, materials);
+        }
+      }
+    } catch (e) {
+      console.error(`Error loading dynamic content for /resources/${page} from Supabase:`, e);
+    }
+  }
+
   const assembledHtml = assemblePage(bodyContent, `/resources/${page}`);
 
   return (
@@ -61,3 +89,4 @@ export default async function ResourcePage({ params }: Props) {
     </>
   );
 }
+

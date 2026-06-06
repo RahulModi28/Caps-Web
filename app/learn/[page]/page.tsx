@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
+import { assemblePage, loadBodyContent, injectSelfGuidedModules, injectTimelineSteps } from "@/lib/html-assembler";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 interface Props {
   params: Promise<{ page: string }>;
@@ -44,7 +45,35 @@ export default async function LearnPage({ params }: Props) {
   const config = learnMap[page];
   if (!config) notFound();
 
-  const bodyContent = loadBodyContent(config.file);
+  let bodyContent = loadBodyContent(config.file);
+
+  if (isSupabaseConfigured()) {
+    try {
+      if (page === "self-guided-modules") {
+        const { data: modules, error } = await supabase!
+          .from('self_guided_modules')
+          .select('*')
+          .order('display_order', { ascending: true });
+        
+        if (!error && modules && modules.length > 0) {
+          bodyContent = injectSelfGuidedModules(bodyContent, modules);
+        }
+      } else if (page === "peer-mentoring") {
+        const { data: steps, error } = await supabase!
+          .from('timeline_steps')
+          .select('*')
+          .eq('page_route', '/learn/peer-mentoring')
+          .order('step_number', { ascending: true });
+        
+        if (!error && steps && steps.length > 0) {
+          bodyContent = injectTimelineSteps(bodyContent, steps);
+        }
+      }
+    } catch (e) {
+      console.error(`Error loading dynamic content for /learn/${page} from Supabase:`, e);
+    }
+  }
+
   const assembledHtml = assemblePage(bodyContent, `/learn/${page}`);
 
   return (
@@ -54,3 +83,4 @@ export default async function LearnPage({ params }: Props) {
     />
   );
 }
+
