@@ -1,6 +1,8 @@
 import { assemblePage, loadBodyContent, injectCampusUpdates } from "@/lib/html-assembler";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
+export const revalidate = 60; // Revalidate page updates every 60 seconds
+
 export default async function Home() {
   let homeBody = loadBodyContent("app/home-body.html");
 

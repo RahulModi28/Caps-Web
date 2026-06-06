@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { assemblePage, loadBodyContent, injectFAQs, injectReferenceMaterials } from "@/lib/html-assembler";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
+export const revalidate = 60; // Revalidate page updates every 60 seconds
+
 interface Props {
   params: Promise<{ page: string }>;
 }
