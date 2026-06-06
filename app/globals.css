@@ -88,16 +88,33 @@ body {
 
 /* Fullscreen overlay styling for the preloader component */
 .preloader_component {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
   height: 100vh;
-  background-color: #20315F; /* Navy background */
-  z-index: 99999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #20315F !important; /* Navy background */
+  z-index: 99999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  animation: movePreloader 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards !important;
+  pointer-events: auto;
+  overflow: hidden !important;
+}
+
+@keyframes movePreloader {
+  0% {
+    opacity: 1;
+    height: 100vh;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    height: 0%;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 /* Increase top padding of navbar logo */
@@ -526,4 +543,223 @@ dialog.team_item_info::backdrop {
   background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.01) 40px),
                     repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.01) 40px);
   opacity: 0.7;
+}
+
+/* FAQ Layout & Accordion Component Overrides */
+.faq_component.grid {
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  column-gap: var(--_grid---column-gap, 2rem) !important;
+  row-gap: var(--_grid---row-gap, 4rem) !important;
+}
+
+.faq_content {
+  grid-column: span 5 !important;
+}
+
+@media (max-width: 991px) {
+  .faq_content {
+    grid-column: span 12 !important;
+  }
+}
+
+.faq_accordions {
+  grid-column-gap: var(--_space---0-5) !important;
+  grid-row-gap: var(--_space---0-5) !important;
+  flex-flow: column !important;
+  grid-column: span 7 !important;
+  display: flex !important;
+}
+
+@media (max-width: 991px) {
+  .faq_accordions {
+    grid-column: span 12 !important;
+  }
+}
+
+.accordions_item_component {
+  padding: var(--_space---0, 0rem) var(--_space---1, 1rem) !important;
+  border: 1px solid var(--_theme---border, rgba(56, 61, 78, 0.3)) !important;
+  border-radius: var(--radius--tiny, 0.25rem) !important;
+  background-color: var(--_color---white, #fbfaf8) !important;
+}
+
+.accordions_item_toggle {
+  padding-top: var(--_space---1-25, 1.25rem) !important;
+  padding-bottom: var(--_space---1-25, 1.25rem) !important;
+  grid-column-gap: var(--_space---1, 1rem) !important;
+  grid-row-gap: var(--_space---1, 1rem) !important;
+  cursor: pointer !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Remove default summary marker */
+summary::-webkit-details-marker {
+  display: none !important;
+}
+summary {
+  list-style: none !important;
+}
+summary::marker {
+  display: none !important;
+}
+
+.accordions_item_title {
+  font-size: var(--_text-style---size) !important;
+  --_text-style---font: var(--_text-base---font--body) !important;
+  --_text-style---size: var(--_text-base---scale--l) !important;
+  --_text-style---line-height: 1.5 !important;
+  --_text-style---weight: 400 !important;
+  --_text-style---letter-spacing: 0px !important;
+  --_text-style---text-transform: var(--_text-base---transform--none) !important;
+}
+
+.accordions_item_content-wrapper {
+  overflow: hidden !important;
+}
+
+.accordions_item_spacer {
+  padding-top: var(--_space---1, 1rem) !important;
+}
+
+.accordions_item_spacer.is-top {
+  padding-top: 1px !important;
+}
+
+.accordions_item_icon-wrapper {
+  width: var(--_space---1, 1rem) !important;
+  height: var(--_space---1, 1rem) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: transform 0.2s !important;
+  display: flex !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+.accordions_item_icon {
+  width: 100% !important;
+  height: 100% !important;
+  color: var(--_theme---detail--primary, #b21e3b) !important;
+  display: flex !important;
+}
+
+.accordions_item_icon.is-vertical {
+  margin-top: -1px !important;
+  transition: transform 0.2s !important;
+  position: absolute !important;
+  transform: rotate(-90deg) !important;
+}
+
+/* Rotate and hide vertical icon when open to form a minus (-) instead of a plus (+) */
+details[open] .accordions_item_icon.is-vertical {
+  transform: rotate(0deg) !important;
+  opacity: 0 !important;
+}
+
+/* Tabs layout custom upgrades */
+.custom-tab-menu {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+  margin-bottom: 3.5rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding-bottom: 1rem !important;
+  flex-wrap: wrap !important;
+}
+.custom-tab-link {
+  font-family: inherit !important;
+  font-size: 1.05rem !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0.5rem 1.5rem !important;
+  cursor: pointer !important;
+  color: var(--color-secondary-slate) !important;
+  border-bottom: 2px solid transparent !important;
+  font-weight: 500 !important;
+  transition: all 0.25s ease !important;
+}
+.custom-tab-link:hover {
+  color: var(--color-accent-gold) !important;
+}
+.custom-tab-link.w--current {
+  color: var(--color-accent-gold) !important;
+  border-bottom-color: var(--color-primary-navy) !important;
+  font-weight: 600 !important;
+}
+
+/* Custom Staggered Timeline Improvements */
+.steps-stagger_component.is-timeline {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 2rem !important;
+  margin-top: 3rem !important;
+}
+/* Horizontal connecting line across timeline items */
+.steps-stagger_component.is-timeline::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 1.5rem !important; /* center align with the numbers */
+  left: 2rem !important;
+  right: 2rem !important;
+  height: 2px !important;
+  background-image: linear-gradient(to right, var(--color-primary-navy) 33%, rgba(0,0,0,0) 0%) !important;
+  background-position: bottom !important;
+  background-size: 8px 2px !important;
+  background-repeat: repeat-x !important;
+  z-index: 0 !important;
+  opacity: 0.4 !important;
+}
+@media (max-width: 991px) {
+  .steps-stagger_component.is-timeline {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .steps-stagger_component.is-timeline::before {
+    display: none !important; /* disable horizontal line on wrapped layouts */
+  }
+}
+@media (max-width: 767px) {
+  .steps-stagger_component.is-timeline {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.steps-stagger_item.is-timeline-step {
+  position: relative !important;
+  z-index: 1 !important;
+  background: white !important;
+  padding: 2rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.02) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+.steps-stagger_item.is-timeline-step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) !important;
+  border-color: rgba(187, 141, 47, 0.3) !important; /* gold tint */
+}
+.steps-stagger_item.is-timeline-step .academic-excellence_number {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  margin: 0 auto !important;
+  background-color: var(--color-accent-gold) !important; /* Navy bg */
+  color: white !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  border: 2px solid var(--color-primary-navy) !important; /* Gold border */
+  box-shadow: 0 0 12px rgba(187, 141, 47, 0.25) !important;
+  transition: transform 0.3s ease !important;
+}
+.steps-stagger_item.is-timeline-step:hover .academic-excellence_number {
+  transform: scale(1.1) !important;
 }

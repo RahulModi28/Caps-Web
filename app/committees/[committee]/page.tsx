@@ -48,9 +48,16 @@ export default async function CommitteePage({ params }: Props) {
   const assembledHtml = assemblePage(bodyContent, `/committees/${committee}`);
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: assembledHtml }}
-      suppressHydrationWarning
-    />
+    <>
+      <link
+        href="/css/leadership-specific.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <div
+        dangerouslySetInnerHTML={{ __html: assembledHtml }}
+        suppressHydrationWarning
+      />
+    </>
   );
 }

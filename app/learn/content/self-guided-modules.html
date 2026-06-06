@@ -104,32 +104,51 @@
                   </div>
                 </div>
               </div>
-              <div data-columns="3" slot-accepts="Component / Card Stack - Card Item" class="card-stack_cards-list">
-                <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card">
-                  <div class="card-stack_card_icon-wrapper">
-                    <span data-wf--global-content-icon--icon="plant" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-e23a2752-5a66-82d5-e82b-ecdcd70739f4"></span>
-                  </div>
-                  <h4 class="card-stack_title">Academic Writing</h4>
-                  <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
-                    <p>Guides covering essay structure, literature review methodology, and citation handbooks (APA, MLA, and Harvard formats).</p>
-                  </div>
+              <!-- Custom Tabs Component (Avoiding Webflow conflict) -->
+              <div class="custom-tabs" style="margin-top: 3rem;">
+                <div class="custom-tab-menu">
+                  <button class="custom-tab-link w--current" data-w-tab="all">All Modules</button>
+                  <button class="custom-tab-link" data-w-tab="writing">Academic Writing</button>
+                  <button class="custom-tab-link" data-w-tab="presentation">Presentation Skills</button>
+                  <button class="custom-tab-link" data-w-tab="technical">Technical Skills</button>
                 </div>
-                <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card">
-                  <div class="card-stack_card_icon-wrapper">
-                    <span data-wf--global-content-icon--icon="star" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-00e72734-ea9b-909f-77cc-1543949b9707"></span>
-                  </div>
-                  <h4 class="card-stack_title">Presentation Skills</h4>
-                  <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
-                    <p>Guides on presentation layout design, verbal delivery techniques, body language, and slide structure guidelines.</p>
-                  </div>
-                </div>
-                <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card">
-                  <div class="card-stack_card_icon-wrapper">
-                    <span data-wf--global-content-icon--icon="globe" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-ac2f390a-8835-d68c-fd93-46e4b7aa6e93"></span>
-                  </div>
-                  <h4 class="card-stack_title">Technical Skills</h4>
-                  <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
-                    <p>Excel formulas & spreadsheet templates, LaTeX thesis document configurations, and basic git version control setups.</p>
+                
+                <div class="custom-tab-content">
+                  <div class="custom-tab-pane" data-w-tab="all-pane">
+                    <div data-columns="3" slot-accepts="Component / Card Stack - Card Item" class="card-stack_cards-list">
+                      <!-- Card 1: Academic Writing -->
+                      <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card" data-category="writing" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+                        <div class="card-stack_card_icon-wrapper">
+                          <span data-wf--global-content-icon--icon="plant" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-e23a2752-5a66-82d5-e82b-ecdcd70739f4"></span>
+                        </div>
+                        <h4 class="card-stack_title">Academic Writing</h4>
+                        <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
+                          <p>Guides covering essay structure, literature review methodology, and citation handbooks (APA, MLA, and Harvard formats).</p>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 2: Presentation Skills -->
+                      <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card" data-category="presentation" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+                        <div class="card-stack_card_icon-wrapper">
+                          <span data-wf--global-content-icon--icon="star" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-00e72734-ea9b-909f-77cc-1543949b9707"></span>
+                        </div>
+                        <h4 class="card-stack_title">Presentation Skills</h4>
+                        <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
+                          <p>Guides on presentation layout design, verbal delivery techniques, body language, and slide structure guidelines.</p>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 3: Technical Skills -->
+                      <div data-wf--component-card-stack---card-item--variant="white" class="card-stack_card" data-category="technical" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+                        <div class="card-stack_card_icon-wrapper">
+                          <span data-wf--global-content-icon--icon="globe" aria-hidden="true" style="--width: 100%;" class="icon_content w-variant-ac2f390a-8835-d68c-fd93-46e4b7aa6e93"></span>
+                        </div>
+                        <h4 class="card-stack_title">Technical Skills</h4>
+                        <div data-columns="1" data-wf--global-rich-text-text-image--text-size="regular" class="rich-text w-richtext">
+                          <p>Excel formulas & spreadsheet templates, LaTeX thesis document configurations, and basic git version control setups.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -171,5 +190,70 @@
           </div>
         </div>
       </section>
+      <!-- Layout Tab Interaction Scripts -->
+      <script type="text/javascript">
+        (function() {
+          function initTabs() {
+            const container = document.querySelector('.custom-tabs');
+            if (!container) {
+              setTimeout(initTabs, 50);
+              return;
+            }
+            const tabs = container.querySelectorAll(".custom-tab-link");
+            const cards = container.querySelectorAll(".card-stack_card");
+            
+            // Set initial filter state to override Webflow's stuck scroll-animation opacity
+            const activeTab = container.querySelector(".custom-tab-link.w--current");
+            if (activeTab) {
+              const category = activeTab.getAttribute("data-w-tab");
+              cards.forEach(card => {
+                const cardCat = card.getAttribute("data-category");
+                if (category === "all" || cardCat === category) {
+                  card.style.display = "flex";
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                } else {
+                  card.style.display = "none";
+                }
+              });
+            }
+
+            tabs.forEach(tab => {
+              tab.addEventListener("click", () => {
+                // Remove active classes
+                tabs.forEach(t => t.classList.remove("w--current"));
+                
+                // Add active class to clicked tab
+                tab.classList.add("w--current");
+                
+                const category = tab.getAttribute("data-w-tab");
+                
+                // Filter card list
+                cards.forEach(card => {
+                  const cardCat = card.getAttribute("data-category");
+                  if (category === "all" || cardCat === category) {
+                    card.style.display = "flex";
+                    // Reset fade transition
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(8px)";
+                    setTimeout(() => {
+                      card.style.opacity = "1";
+                      card.style.transform = "translateY(0)";
+                    }, 50);
+                  } else {
+                    card.style.display = "none";
+                  }
+                });
+              });
+            });
+          }
+          
+          if (document.readyState === "complete" || document.readyState === "interactive") {
+            initTabs();
+          } else {
+            document.addEventListener("DOMContentLoaded", initTabs);
+          }
+        })();
+      </script>
     </div>
   </main>

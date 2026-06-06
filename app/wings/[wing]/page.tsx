@@ -48,9 +48,16 @@ export default async function WingPage({ params }: Props) {
   const assembledHtml = assemblePage(bodyContent, `/wings/${wing}`);
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: assembledHtml }}
-      suppressHydrationWarning
-    />
+    <>
+      <link
+        href="/css/leadership-specific.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <div
+        dangerouslySetInnerHTML={{ __html: assembledHtml }}
+        suppressHydrationWarning
+      />
+    </>
   );
 }
