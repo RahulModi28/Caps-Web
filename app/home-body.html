@@ -1,0 +1,1780 @@
+    <div class="display-contents">
+      <section class="section_hero-special">
+        <div class="hero-special_bg-visual-wrapper">
+          <img
+            src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/hero-home"
+            class="hero-special_bg-visual is-front"
+            alt="CAPS students collaborating on the Christ University Yeshwanthpur campus"
+            style="object-fit: cover"
+          /><img
+            src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/hero-home"
+            class="hero-special_bg-visual is-back"
+            alt="CAPS students collaborating background visual"
+            style="object-fit: cover"
+          />
+          <div class="image_scroll-overlay"></div>
+        </div>
+        <div class="hero-special_bg-overlay"></div>
+        <div class="container-large">
+          <div class="hero-special_component">
+            <h2 class="hero-special_title">
+              <span class="hero-special_title-normal hide-if-empty"
+                >Empowering Minds.</span
+              ><span class="hero-special_title-accent is-red"
+                >Facilitating Growth.</span
+              >
+            </h2>
+            <div class="hero-special_subtitle-wrap">
+              <h2 class="hero-special_subtitle">
+                Centre for Academic and <strong>Professional Support.</strong>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            @media screen and (max-height: 600px) {
+              .hero-special_component {
+                padding-bottom: 15rem;
+              }
+            }
+
+            .hero-special_subtitle strong {
+              display: inline-block;
+              font-weight: inherit;
+              position: relative;
+            }
+
+            .hero-special_subtitle strong::before {
+              content: "";
+              background: var(--_theme---background);
+              inset: 0 -5px 0 -5px;
+              position: absolute;
+              z-index: -1;
+              transform-origin: left center;
+              scale: 0 1;
+              transition: scale 0.3s ease-out;
+            }
+
+            html.wf-design-mode .hero-special_subtitle strong::before,
+            .hero-special_subtitle.is-highlighted strong::before {
+              scale: 1 1;
+            }
+
+            .hero-special_title-accent {
+              text-box-trim: trim-both;
+            }
+
+            .hero-special_title-accent strong {
+              color: var(--_theme---background-secondary);
+              font-weight: inherit;
+            }
+
+            /*
+  .hero-special_title-accent .gsap_split_word {
+  	vertical-align: top;
+    margin-top: -0.3em;
+  }
+  */
+
+            .hero-special_title-accent.is-red {
+              font-size: clamp(2.2rem, 5.5vw, 5.5rem) !important;
+              line-height: 1.05 !important;
+              margin-top: 0.1em !important;
+              padding-left: 5vw !important;
+            }
+          </style>
+        </div>
+      </section>
+      <section
+        STYLE="--height: 100vh; --range: contain 30% exit 30%;"
+        class="section_statement"
+      >
+        <div class="statement_content-wrapper">
+          <div>
+            <h1
+              data-wf--global-heading--size="default"
+              class="heading text-size-small"
+            >
+              The Centre for Academic and Professional Support (CAPS), located
+              at Christ University Yeshwanthpur Campus, Bangalore, is a premier
+              student-led hub that fosters academic and professional competency.
+            </h1>
+          </div>
+          <p class="statement_text-wrap">
+            Discover an <em>empowering platform</em> in a
+            <em>collaborative ecosystem</em>. CAPS peer mentors guide you to
+            grow academically, professionally and personally...
+            <em>equipped to take on the world</em>.
+          </p>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            /**
+  * ANIMATION
+  * Text Gradient Fill on Scroll
+  * CSS added here because scroll-timeline polyfill only works with styles from same domain and Webflow CSS is on a separate domain
+  */
+            .section_statement {
+              --height: 100vh;
+              --range: contain 30% exit 30%;
+              view-timeline: --_text-gradient-scrub;
+            }
+
+            .text-gradient-fill {
+              background-size: 0% 100%;
+              background-repeat: no-repeat;
+              background-image: linear-gradient(
+                90deg,
+                var(--_theme---text) 90%,
+                transparent
+              );
+              animation: text-gradient-color-fill linear both;
+              animation-timeline: --_text-gradient-scrub;
+              animation-range: var(--range);
+            }
+
+            @keyframes text-gradient-color-fill {
+              from {
+                background-size: 0% 100%;
+              }
+
+              to {
+                background-size: 110% 100%;
+              }
+            }
+
+            /*
+  .statement_text-highlight-wrap::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 0.05em;
+  background-color: currentColor;
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale 0.5s ease-out;
+  }
+  .statement_text-highlight-wrap:is(:hover, :focus)::after {
+  scale: 1 1;
+  }
+  */
+
+            .statement_text-highlight-wrap:has(.statement_highlight-image) {
+              --underline-height: 0.05em;
+              display: inline;
+              background-image: linear-gradient(
+                120deg,
+                currentColor 0%,
+                currentColor 100%
+              );
+              background-repeat: no-repeat;
+              background-size: 0% var(--underline-height);
+              background-position: left bottom;
+              transition: background-size 0.5s var(--animation--ease);
+              cursor: pointer;
+            }
+
+            .statement_text-highlight-wrap:is(:hover, :focus) {
+              background-size: 100% var(--underline-height);
+            }
+
+            .statement_highlight-images-list {
+              --angle: 150deg;
+            }
+
+            .statement_highlight-image-wrap {
+              --i: 1;
+              --radius: clamp(6rem, 25cqw, 17.5rem);
+              --final-angle: calc(
+                (360deg / var(--total-images)) * (var(--i) - 1) - var(--angle)
+              );
+              transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+              &:nth-child(1) {
+                --i: 1;
+              }
+
+              &:nth-child(2) {
+                --i: 2;
+              }
+
+              &:nth-child(3) {
+                --i: 3;
+              }
+            }
+
+            .statement_text-highlight-wrap:is(:hover, :focus)
+              .statement_highlight-image-wrap {
+              left: calc(cos(var(--final-angle)) * var(--radius));
+              top: calc(sin(var(--final-angle)) * var(--radius));
+              scale: 1;
+              rotate: 0deg;
+            }
+
+            .statement_text-wrap:has(
+                .statement_text-highlight-wrap:is(:hover, :focus)
+              )
+              > span:not(:hover) {
+              opacity: 0.75;
+            }
+
+            .hero-special_title-accent.is-red {
+              font-size: clamp(2.2rem, 5.5vw, 5.5rem) !important;
+              line-height: 1.05 !important;
+              margin-top: 0.1em !important;
+              padding-left: 5vw !important;
+            }
+          </style>
+        </div>
+      </section>
+      <section class="section_years">
+        <div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="years_component text-align-center">
+              <h2>
+                Explore our core <br />‍<em>academic &amp; career wings</em>
+              </h2>
+              <div class="spacer-2"></div>
+              <div class="years_card-list">
+                <a
+                  href="#services"
+                  target="_blank"
+                  class="years-card_component w-inline-block"
+                >
+                  <div class="years-card_info-layer">
+                    <div class="years-card_info-content">
+                      <div class="years-card_spacer"></div>
+                      <h3 class="text-color-primary text-style-italic">
+                        One on One
+                      </h3>
+                      <p class="text-size-large text-weight-semibold">
+                        Peer Training
+                      </p>
+                      <div class="spacer-1"></div>
+                    </div>
+                  </div>
+                  <div class="years-card_title-wrap">
+                    <p class="heading-style-h3">One on One Peer Training</p>
+                  </div>
+                  <figure STYLE="--pos-x: 50%" class="years-card_image-wrap">
+                    <img
+                      src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/wing-one-on-one-peer-training"
+                      class="years-card_image"
+                      alt="One on One Peer Training at CAPS"
+                      style="object-fit: cover"
+                    />
+                    <div class="years-card_text-overlay"></div>
+                    <div class="years-card_image-overlay"></div>
+                  </figure> </a
+                ><a
+                  href="#services"
+                  target="_blank"
+                  class="years-card_component w-inline-block"
+                >
+                  <div class="years-card_info-layer">
+                    <div class="years-card_info-content">
+                      <div class="years-card_spacer"></div>
+                      <h3 class="text-color-primary text-style-italic">
+                        Group
+                      </h3>
+                      <p class="text-size-large text-weight-semibold">
+                        Peer Training
+                      </p>
+                      <div class="spacer-1"></div>
+                    </div>
+                  </div>
+                  <div class="years-card_title-wrap">
+                    <p class="heading-style-h3">Group Peer Training</p>
+                  </div>
+                  <figure STYLE="--pos-x: 30%" class="years-card_image-wrap">
+                    <img
+                      src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/wing-group-peer-training"
+                      class="years-card_image"
+                      alt="Group Peer Training at CAPS"
+                      style="object-fit: cover"
+                    />
+                    <div class="years-card_text-overlay"></div>
+                    <div class="years-card_image-overlay"></div>
+                  </figure> </a
+                ><a
+                  href="#services"
+                  target="_blank"
+                  class="years-card_component w-inline-block"
+                >
+                  <div class="years-card_info-layer">
+                    <div class="years-card_info-content">
+                      <div class="years-card_spacer"></div>
+                      <h3 class="text-color-primary text-style-italic">
+                        Connect
+                      </h3>
+                      <p class="text-size-large text-weight-semibold">Wide</p>
+                      <div class="spacer-1"></div>
+                    </div>
+                  </div>
+                  <div class="years-card_title-wrap">
+                    <p class="heading-style-h3">Connect Wide</p>
+                  </div>
+                  <figure STYLE="--pos-x: 50%" class="years-card_image-wrap">
+                    <img
+                      src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/wing-connect-wide"
+                      class="years-card_image"
+                      alt="Connect Wide wing at CAPS"
+                      style="object-fit: cover"
+                    />
+                    <div class="years-card_text-overlay"></div>
+                    <div class="years-card_image-overlay"></div>
+                  </figure> </a
+                ><a
+                  href="#services"
+                  target="_blank"
+                  class="years-card_component w-inline-block"
+                >
+                  <div class="years-card_info-layer">
+                    <div class="years-card_info-content">
+                      <div class="years-card_spacer"></div>
+                      <h3 class="text-color-primary text-style-italic">
+                        Research &amp;
+                      </h3>
+                      <p class="text-size-large text-weight-semibold">
+                        Assessment
+                      </p>
+                      <div class="spacer-1"></div>
+                    </div>
+                  </div>
+                  <div class="years-card_title-wrap">
+                    <p class="heading-style-h3">Research &amp; Assessment</p>
+                  </div>
+                  <figure STYLE="--pos-x: 30%" class="years-card_image-wrap">
+                    <img
+                      src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/wing-research-assessment"
+                      class="years-card_image"
+                      alt="Research & Assessment at CAPS"
+                      style="object-fit: cover"
+                    />
+                    <div class="years-card_text-overlay"></div>
+                    <div class="years-card_image-overlay"></div>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            .years-card_info-layer {
+              transition: grid-template-rows 0.5s var(--animation--ease);
+            }
+
+            .years-card_component:has(:hover, :focus-visible)
+              .years-card_info-layer {
+              grid-template-rows: 1fr;
+            }
+
+            /* Change opacity of other non-hovered cards */
+            .years_card-list:has(.years-card_component:hover)
+              .years-card_component:not(:hover)
+              .years-card_image-overlay {
+              opacity: 0.4;
+            }
+
+            .hero-special_title-accent.is-red {
+              font-size: clamp(2.2rem, 5.5vw, 5.5rem) !important;
+              line-height: 1.05 !important;
+              margin-top: 0.1em !important;
+              padding-left: 5vw !important;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-bg-color="1" class="section_testimonial">
+        <div class="display-contents"></div>
+        <div class="padding-global padding-section-small">
+          <div class="container-small">
+            <div>
+              <div class="testimonial_component w-dyn-list">
+                <div role="list" class="display-contents w-dyn-items">
+                  <div role="listitem" class="display-contents w-dyn-item">
+                    <p class="testimonial_quote">
+                      CAPS has been more than just a centre to me—it has been a
+                      space where I’ve grown, learned, and built meaningful
+                      connections. Being part of the volunteer body has given me
+                      a better understanding of self-development, communication,
+                      and professional competencies.
+                    </p>
+                    <div class="spacer-2"></div>
+                    <div class="testimonial_meta">
+                      <img
+                        src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                        loading="lazy"
+                        alt=""
+                        class="testimonial_image w-dyn-bind-empty"
+                      />
+                      <div class="spacer-1"></div>
+                      <p class="testimonial_name">
+                        Al Sakib Hami (Team Lead, Operations)
+                      </p>
+                      <p class="w-dyn-bind-empty"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-confetti="" class="section_academic-excellence">
+        <div class="padding-global padding-section-large">
+          <div class="container-large">
+            <div
+              data-wf--component-content-intro-heading--variant="two-column-split"
+              class="content-intro_component"
+            >
+              <div class="visibility-wrapper display-contents">
+                <div class="line-divider"></div>
+                <div class="spacer-1d5"></div>
+              </div>
+              <div
+                class="content-intro_wrap w-variant-838ca63e-029a-66f5-c08c-a991d72f3e1f"
+              >
+                <div
+                  class="content-intro_title-wrapper w-variant-838ca63e-029a-66f5-c08c-a991d72f3e1f"
+                >
+                  <div
+                    data-wf--element-eyebrow--layout="horizontal"
+                    class="eyebrow_component"
+                  >
+                    <div class="eyebrow_icon">
+                      <span
+                        data-wf--global-general-icon--icon="flower"
+                        aria-hidden="true"
+                        STYLE=""
+                        class="icon_svg"
+                      ></span>
+                    </div>
+                    <p class="text-style-eyebrow">CAPS Outreach Statistics</p>
+                  </div>
+                  <h2>
+                    Outreach <em>impact </em>and <em>peer-ready </em>support
+                  </h2>
+                </div>
+                <div
+                  class="content-intro_desc-wrapper w-variant-838ca63e-029a-66f5-c08c-a991d72f3e1f"
+                >
+                  <div
+                    data-columns="1"
+                    data-wf--global-rich-text-text-image--text-size="regular"
+                    class="rich-text w-richtext"
+                  >
+                    <p>
+                      At Christ University, Yeshwanthpur Campus, CAPS fosters a
+                      shared platform for peer mentorship. Our student-guided
+                      support helps each learner excel, preparing them for
+                      placements and research careers.
+                    </p>
+                  </div>
+                  <div class="display-contents hide-if-empty"></div>
+                </div>
+              </div>
+            </div>
+            <div class="steps-stagger_component">
+              <div
+                slot-accepts="Block / Steps Stagger Item"
+                class="display-contents"
+              >
+                <div
+                  slot-accepts="Block / Academic Excellence Stat Item"
+                  class="display-contents"
+                >
+                  <div data-stagger="1" class="steps-stagger_item">
+                    <p class="academic-excellence_number">
+                      <span data-el="counter">12400</span
+                      ><span class="hide-if-empty">+</span>
+                    </p>
+                    <div class="spacer-0d75"></div>
+                    <div class="line-divider"></div>
+                    <div class="spacer-1"></div>
+                    <p>Peer mentorship and writing feedback sessions</p>
+                  </div>
+                  <div data-stagger="1" class="steps-stagger_item">
+                    <p class="academic-excellence_number">
+                      <span data-el="counter">150</span
+                      ><span class="hide-if-empty">+</span>
+                    </p>
+                    <div class="spacer-0d75"></div>
+                    <div class="line-divider"></div>
+                    <div class="spacer-1"></div>
+                    <p>Active student mentors &amp; volunteers</p>
+                  </div>
+                  <div data-stagger="1" class="steps-stagger_item">
+                    <p class="academic-excellence_number">
+                      <span data-el="counter">28500</span
+                      ><span class="hide-if-empty">+</span>
+                    </p>
+                    <div class="spacer-0d75"></div>
+                    <div class="line-divider"></div>
+                    <div class="spacer-1"></div>
+                    <p>Outreach program participants</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-wf--block-button-group--alignment="center"
+              class="button-group w-variant-7208a691-7fa0-7869-d354-20d393399b57"
+            >
+              <div slot-accepts="Element / Button" class="display-contents">
+                <div class="display-contents">
+                  <div
+                    data-link-fill-parent="0"
+                    data-size="1"
+                    data-wf--element-button--type="primary"
+                    class="button_component"
+                  >
+                    <a
+                      href="https://sites.google.com/christuniversity.in/caps-site-byc/home"
+                      target="_blank"
+                      class="button_link w-inline-block"
+                    ></a>
+                    <div class="button_bg-hover"></div>
+                    <div data-icon-position="1" class="button_content-wrapper">
+                      <p class="button_text">Register as a Volunteer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        data-bg-color="1"
+        data-wf--section-2-column-text-image--layout="image-left"
+        class="section_2-col-info-block"
+      >
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="info-block_component grid">
+              <div class="info-block_text-wrapper is-grid-column-half">
+                <div
+                  data-wf--element-eyebrow--layout="horizontal"
+                  class="eyebrow_component spacer-1"
+                >
+                  <div class="eyebrow_icon">
+                    <span
+                      data-wf--global-general-icon--icon="flower"
+                      aria-hidden="true"
+                      STYLE=""
+                      class="icon_svg"
+                    ></span>
+                  </div>
+                  <p class="text-style-eyebrow">Support that powers learning</p>
+                </div>
+                <h2><em>Mentoring</em> &amp; Writing Support</h2>
+                <div class="spacer-1d5"></div>
+                <div
+                  data-columns="1"
+                  data-wf--global-rich-text-text-image--text-size="large"
+                  class="rich-text w-variant-bee3f83c-b899-3f1e-43fe-bcf7e1292082 w-richtext"
+                >
+                  <p>
+                    At the Writing Centre, student mentors provide personalized
+                    feedback on essays, research proposals, resumes, and
+                    academic assignments. Our peer-guided system makes it safe
+                    to learn from mistakes and refine communication styles.
+                  </p>
+                </div>
+                <div class="visibility-wrapper">
+                  <div class="spacer-2"></div>
+                  <div class="button-group">
+                    <div
+                      data-link-fill-parent="0"
+                      data-size="1"
+                      data-wf--element-button--type="secondary"
+                      class="button_component w-variant-81eb97b7-cf50-1c58-61cc-418fd746197b"
+                    >
+                      <a
+                        href="#services"
+                        target="_blank"
+                        class="button_link w-inline-block"
+                      ></a>
+                      <div class="button_bg-hover"></div>
+                      <div
+                        data-icon-position="1"
+                        class="button_content-wrapper"
+                      >
+                        <p class="button_text">Learn about One-on-One</p>
+                      </div>
+                    </div>
+                    <div class="display-contents"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="info-block_image-wrapper w-variant-78303301-e12d-ef5e-4323-a4f194065dd1 is-grid-column-half"
+              >
+                <div
+                  id=""
+                  style="--ratio: 1/1"
+                  class="info-block_image_component"
+                >
+                  <div
+                    data-wf--global-visual-image-video--styling-size="16-9"
+                    data-parallax="1"
+                    style="--pos-y: 20%; --pos-x: 50%"
+                    class="image-wrapper"
+                  >
+                    <div style="--opacity: 0" class="image-overlay-layer"></div>
+                    <figure>
+                      <img
+                        src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/home-mentoring-writing"
+                        class="image"
+                        alt="Mentoring and Writing Support session at CAPS"
+                        style="object-fit: cover"
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        data-bg-color="1"
+        data-wf--section-2-column-text-image--layout="image-right"
+        class="section_2-col-info-block"
+      >
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="info-block_component grid">
+              <div class="info-block_text-wrapper is-grid-column-half">
+                <div
+                  data-wf--element-eyebrow--layout="horizontal"
+                  class="eyebrow_component spacer-1"
+                >
+                  <div class="eyebrow_icon">
+                    <span
+                      data-wf--global-general-icon--icon="flower"
+                      aria-hidden="true"
+                      STYLE=""
+                      class="icon_svg"
+                    ></span>
+                  </div>
+                  <p class="text-style-eyebrow">Skill Enhancement</p>
+                </div>
+                <h2><em>Peer Workshops</em> and Seminars</h2>
+                <div class="spacer-1d5"></div>
+                <div
+                  data-columns="1"
+                  data-wf--global-rich-text-text-image--text-size="large"
+                  class="rich-text w-variant-bee3f83c-b899-3f1e-43fe-bcf7e1292082 w-richtext"
+                >
+                  <p>
+                    CAPS regularly organizes workshops on public speaking, CV
+                    building, group discussions, and interview preparation.
+                    These interactive group sessions complement the university
+                    curriculum and prepare learners for career readiness.
+                  </p>
+                </div>
+                <div class="visibility-wrapper">
+                  <div class="spacer-2"></div>
+                  <div class="button-group">
+                    <div
+                      data-link-fill-parent="0"
+                      data-size="1"
+                      data-wf--element-button--type="secondary"
+                      class="button_component w-variant-81eb97b7-cf50-1c58-61cc-418fd746197b"
+                    >
+                      <a
+                        href="#services"
+                        target="_blank"
+                        class="button_link w-inline-block"
+                      ></a>
+                      <div class="button_bg-hover"></div>
+                      <div
+                        data-icon-position="1"
+                        class="button_content-wrapper"
+                      >
+                        <p class="button_text">Explore Group Sessions</p>
+                      </div>
+                    </div>
+                    <div class="display-contents"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="info-block_image-wrapper is-grid-column-half">
+                <div
+                  id=""
+                  style="--ratio: 1/1"
+                  class="info-block_image_component"
+                >
+                  <div
+                    data-wf--global-visual-image-video--styling-size="16-9"
+                    data-parallax="1"
+                    style="--pos-y: 50%; --pos-x: 50%"
+                    class="image-wrapper"
+                  >
+                    <div style="--opacity: 0" class="image-overlay-layer"></div>
+                    <figure>
+                      <img
+                        src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/home-workshops"
+                        class="image"
+                        alt="Workshops and Seminars presentation at CAPS"
+                        style="object-fit: cover"
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-wf--section-cta--style="card" class="section_cta">
+        <div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="cta_component">
+              <div
+                data-wf--element-blurred-gradient-bg-circle--variant="primary"
+                style="inset: 0 0 auto auto"
+                class="circle-blur-wrapper"
+              >
+                <div style="--opacity: 0.25" class="circle-blur"></div>
+              </div>
+              <div
+                class="cta_crest-wrapper"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-bottom: 2rem;
+                "
+              ></div>
+              <div class="cta_content-wrapper">
+                <div
+                  data-wf--element-eyebrow--layout="horizontal"
+                  class="eyebrow_component spacer-1d5"
+                >
+                  <div class="eyebrow_icon">
+                    <span
+                      data-wf--global-general-icon--icon="flower"
+                      aria-hidden="true"
+                      STYLE=""
+                      class="icon_svg"
+                    ></span>
+                  </div>
+                  <p class="text-style-eyebrow">Book a Support Session</p>
+                </div>
+                <h2><em>Book a Slot</em></h2>
+                <div class="spacer-1d5"></div>
+                <p class="hide-if-empty">
+                  Select your desired wing on the CAPS portal and book a
+                  one-on-one session with a mentor.
+                </p>
+                <div class="spacer-2"></div>
+                <div class="button-group is-center">
+                  <div
+                    data-link-fill-parent="0"
+                    data-size="1"
+                    data-wf--element-button--type="primary"
+                    class="button_component"
+                  >
+                    <a
+                      href="https://sites.google.com/christuniversity.in/caps-site-byc/home"
+                      target="_blank"
+                      class="button_link w-inline-block"
+                    ></a>
+                    <div class="button_bg-hover"></div>
+                    <div data-icon-position="1" class="button_content-wrapper">
+                      <p class="button_text">Book on Google Portal</p>
+                    </div>
+                  </div>
+                  <div class="display-contents"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="" STYLE="--gradient-size: 100vw" class="section_card-stack">
+        <div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="card-stack_component">
+              <div class="card-stack_content max-width-large">
+                <div
+                  data-wf--component-content-intro-heading--variant="centered"
+                  class="content-intro_component"
+                >
+                  <div class="content-intro_wrap">
+                    <div class="content-intro_title-wrapper">
+                      <h2><em>Grow </em>with purpose. <em>Lead </em>change.</h2>
+                    </div>
+                    <div class="content-intro_desc-wrapper">
+                      <div
+                        data-columns="1"
+                        data-wf--global-rich-text-text-image--text-size="regular"
+                        class="rich-text w-richtext"
+                      >
+                        <p>
+                          CAPS empowers student volunteers to develop their
+                          leadership identity. Peer mentors take charge of
+                          specialized divisions, designing training plans and
+                          supporting their fellow peers in a professional
+                          setting.
+                        </p>
+                      </div>
+                      <div class="display-contents hide-if-empty">
+                        <div
+                          data-link-fill-parent="0"
+                          data-size="1"
+                          data-wf--element-button--type="primary"
+                          class="button_component"
+                        >
+                          <a
+                            href="https://sites.google.com/christuniversity.in/caps-site-byc/home"
+                            target="_blank"
+                            class="button_link w-inline-block"
+                          ></a>
+                          <div class="button_bg-hover"></div>
+                          <div
+                            data-icon-position="1"
+                            class="button_content-wrapper"
+                          >
+                            <p class="button_text">Volunteer Portal</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-columns="3"
+                slot-accepts="Component / Card Stack - Card Item"
+                class="card-stack_cards-list"
+              >
+                <div
+                  data-wf--component-card-stack---card-item--variant="white"
+                  class="card-stack_card"
+                >
+                  <div class="card-stack_card_icon-wrapper">
+                    <span
+                      data-wf--global-content-icon--icon="plant"
+                      aria-hidden="true"
+                      STYLE="--width: 100%;"
+                      class="icon_content w-variant-e23a2752-5a66-82d5-e82b-ecdcd70739f4"
+                    ></span>
+                  </div>
+                  <h4 class="card-stack_title">Stage 1: Introductory Mentor</h4>
+                  <div
+                    data-columns="1"
+                    data-wf--global-rich-text-text-image--text-size="regular"
+                    class="rich-text w-richtext"
+                  >
+                    <p>
+                      Student volunteers undergo introductory training to
+                      support coordinators, organize campaigns, and facilitate
+                      Writing Centre sessions under senior mentor supervision.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  data-wf--component-card-stack---card-item--variant="white"
+                  class="card-stack_card"
+                >
+                  <div class="card-stack_card_icon-wrapper">
+                    <span
+                      data-wf--global-content-icon--icon="star"
+                      aria-hidden="true"
+                      STYLE="--width: 100%;"
+                      class="icon_content w-variant-00e72734-ea9b-909f-77cc-1543949b9707"
+                    ></span>
+                  </div>
+                  <h4 class="card-stack_title">
+                    Stage 2: Active Peer Facilitator
+                  </h4>
+                  <div
+                    data-columns="1"
+                    data-wf--global-rich-text-text-image--text-size="regular"
+                    class="rich-text w-richtext"
+                  >
+                    <p>
+                      Experienced volunteers conduct group workshops (GPT),
+                      analyze research formatting, lead specific wings, and
+                      mentor the new batch of junior volunteers.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  data-wf--component-card-stack---card-item--variant="white"
+                  class="card-stack_card"
+                >
+                  <div class="card-stack_card_icon-wrapper">
+                    <span
+                      data-wf--global-content-icon--icon="globe"
+                      aria-hidden="true"
+                      STYLE="--width: 100%;"
+                      class="icon_content w-variant-ac2f390a-8835-d68c-fd93-46e4b7aa6e93"
+                    ></span>
+                  </div>
+                  <h4 class="card-stack_title">Stage 3: Executive Committee</h4>
+                  <div
+                    data-columns="1"
+                    data-wf--global-rich-text-text-image--text-size="regular"
+                    class="rich-text w-richtext"
+                  >
+                    <p>
+                      Student coordinators and team leads design strategic
+                      outreach initiatives, coordinate with university heads,
+                      and manage campus-wide operations for CAPS.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-wf--element-blurred-gradient-bg-circle--variant="primary"
+          style="inset: 0 0 auto auto"
+          class="circle-blur-wrapper"
+        >
+          <div style="--opacity: 0.25" class="circle-blur"></div>
+        </div>
+        <div
+          data-wf--element-blurred-gradient-bg-circle--variant="secondary"
+          style="inset: auto auto 50% 0"
+          class="circle-blur-wrapper"
+        >
+          <div
+            style="--opacity: 0.25; --gradient-size: 100vw"
+            class="circle-blur w-variant-0eb8a020-8bb1-91f3-764e-8d455963d820"
+          ></div>
+        </div>
+      </section>
+      <section class="section_image-cloud">
+        <div class="image-cloud_content-wrapper">
+          <div
+            data-wf--element-eyebrow--layout="horizontal"
+            class="eyebrow_component"
+          >
+            <div class="eyebrow_icon">
+              <span
+                data-wf--global-general-icon--icon="flower"
+                aria-hidden="true"
+                STYLE=""
+                class="icon_svg"
+              ></span>
+            </div>
+            <p class="text-style-eyebrow">CAPS Peer Network</p>
+          </div>
+          <h2 class="margin-bottom margin-xsmall">
+            <em>Collaborative</em> <em>development</em>. <br />Academic and
+            <em>professional</em> mentoring
+          </h2>
+          <div
+            data-link-fill-parent="0"
+            data-size="1"
+            data-wf--element-button--type="primary"
+            class="button_component"
+          >
+            <a
+              href="https://sites.google.com/christuniversity.in/caps-site-byc/home"
+              target="_blank"
+              class="button_link w-inline-block"
+            ></a>
+            <div class="button_bg-hover"></div>
+            <div data-icon-position="1" class="button_content-wrapper">
+              <p class="button_text">Visit Portal</p>
+            </div>
+          </div>
+        </div>
+        <div class="image-cloud_scroll">
+          <div class="image-cloud_center-image-sticky-wrap">
+            <div class="image-cloud_center-image-wrap">
+              <img
+                src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-center-1"
+                class="image-cloud_center-image"
+                alt="CAPS peer mentors collaborating in a group"
+                style="object-fit: cover"
+              /><img
+                src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-center-2"
+                class="image-cloud_center-image"
+                alt="CAPS peer support network active discussion"
+                style="object-fit: cover"
+              />
+              <div class="image_scroll-overlay"></div>
+            </div>
+          </div>
+          <div style="--speed: -20vh" class="image-cloud_image-wrap is-1">
+            <div
+              data-wf--global-visual-image-video--styling-size="square"
+              data-parallax="0"
+              style="--pos-y: 50%; --pos-x: 50%; --ratio: 16/9"
+              class="image-wrapper w-variant-c428d57e-eeb9-cecb-862f-efe1b8e0c69f"
+            >
+              <div style="--opacity: 0" class="image-overlay-layer"></div>
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-floating-1"
+                  class="image"
+                  alt="CAPS student coordinators group photo"
+                  style="object-fit: cover"
+                />
+              </figure>
+            </div>
+          </div>
+          <div style="--speed: -50vh" class="image-cloud_image-wrap is-2">
+            <div
+              data-wf--global-visual-image-video--styling-size="custom"
+              data-parallax="0"
+              style="--pos-y: 50%; --ratio: 4/3"
+              class="image-wrapper w-variant-a340da74-3aac-35b0-169e-a61c9261f764"
+            >
+              <div style="--opacity: 0" class="image-overlay-layer"></div>
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-floating-2"
+                  class="image"
+                  alt="Students interactive discussion at CAPS"
+                  style="object-fit: cover"
+                />
+              </figure>
+            </div>
+          </div>
+          <div style="--speed: -60vh" class="image-cloud_image-wrap is-3">
+            <div
+              data-wf--global-visual-image-video--styling-size="16-9"
+              data-parallax="0"
+              style="--pos-y: 50%; --pos-x: 50%; --ratio: 16/9"
+              class="image-wrapper"
+            >
+              <div style="--opacity: 0" class="image-overlay-layer"></div>
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-floating-3"
+                  class="image"
+                  alt="Peer mentoring workshop event at Christ University"
+                  style="object-fit: cover"
+                />
+              </figure>
+            </div>
+          </div>
+          <div style="--speed: -30vh" class="image-cloud_image-wrap is-4">
+            <div
+              data-wf--global-visual-image-video--styling-size="16-9"
+              data-parallax="0"
+              style="--pos-y: 50%; --pos-x: 50%; --ratio: 16/9"
+              class="image-wrapper"
+            >
+              <div style="--opacity: 0" class="image-overlay-layer"></div>
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/douvu5qu2/image/upload/f_auto,q_auto,w_auto/caps-website/peer-network-floating-4"
+                  class="image"
+                  alt="Student support desk discussion"
+                  style="object-fit: cover"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            .image-cloud_scroll {
+              view-timeline-name: --image-cloud-timeline;
+              view-timeline-axis: block;
+            }
+
+            .image-cloud_center-image-wrap {
+              animation: cloud-scroll_center-image-scale-in ease-out both;
+              animation-timeline: --image-cloud-timeline;
+              animation-range: contain 5% contain 85%;
+            }
+
+            .image-cloud_image-wrap {
+              --speed: -50vh;
+              animation: cloud-scroll_side-image-parallax ease-out both;
+              animation-timeline: --image-cloud-timeline;
+              animation-range: contain 0% contain 100%;
+            }
+
+            .image-cloud_scroll .image_scroll-overlay {
+              animation: cloud-scroll_show-overlay ease-out both;
+              animation-timeline: --image-cloud-timeline;
+              animation-range: contain 5% contain 85%;
+            }
+
+            @keyframes cloud-scroll_center-image-scale-in {
+              from {
+                transform: scale(0.3);
+                height: 80%;
+              }
+
+              15% {
+                height: 100%;
+                transform: scale(0.3);
+              }
+
+              to {
+                transform: scale(1, 1);
+              }
+            }
+
+            @keyframes cloud-scroll_side-image-parallax {
+              from {
+                translate: 0 0vh;
+              }
+
+              to {
+                translate: 0 var(--speed);
+              }
+            }
+
+            @keyframes cloud-scroll_show-overlay {
+              from {
+                opacity: 0;
+              }
+
+              to {
+                opacity: 1;
+              }
+            }
+
+            .hero-special_title-accent.is-red {
+              font-size: clamp(2.2rem, 5.5vw, 5.5rem) !important;
+              line-height: 1.05 !important;
+              margin-top: 0.1em !important;
+              padding-left: 5vw !important;
+            }
+          </style>
+        </div>
+      </section>
+      <section class="section_latest-news">
+        <div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="latest-news_header-wrap">
+              <div
+                data-wf--element-eyebrow--layout="horizontal"
+                class="eyebrow_component"
+              >
+                <div class="eyebrow_icon">
+                  <span
+                    data-wf--global-general-icon--icon="flower"
+                    aria-hidden="true"
+                    STYLE=""
+                    class="icon_svg"
+                  ></span>
+                </div>
+                <p class="text-style-eyebrow">News &amp; Events</p>
+              </div>
+              <div class="spacer-1d5"></div>
+              <h2><em>News </em>from CAPS Yeshwanthpur</h2>
+            </div>
+            <div class="spacer-4"></div>
+            <div
+              data-slider-effect="cards"
+              data-slider-el="component"
+              data-slider-loop="true"
+              class="latest-news_component"
+            >
+              <div class="latest-news_slider_component swiper w-dyn-list">
+                <div
+                  role="list"
+                  class="latest-news_slider_wrapper swiper-wrapper w-dyn-items"
+                >
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #b487ce"
+                          class="news_card_category"
+                        >
+                          Campus Update
+                        </p>
+                        <p>Jun 2, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          New Consultation Desk Launched in Block B to Support
+                          Peer Sessions
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          Refurbished CAPS consultation rooms opened to
+                          accommodate rising demand for sessions.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #53900f"
+                          class="news_card_category"
+                        >
+                          Workshops
+                        </p>
+                        <p>Feb 9, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Placement Preparation Boot Camp Organized for Final
+                          Year Batches
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          A comprehensive training session on group discussions
+                          and mock interviews was conducted by CAPS mentors.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #b91c1c"
+                          class="news_card_category"
+                        >
+                          Mentorship
+                        </p>
+                        <p>Feb 6, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Orientation 2026: Welcoming New Student Mentors and
+                          Coordinators
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          CAPS welcomed its new batch of student mentors and
+                          executives to drive academic support on campus.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #2563eb"
+                          class="news_card_category"
+                        >
+                          Writing Centre
+                        </p>
+                        <p>Jan 20, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Writing Centre Workshops Record High Student
+                          Participation
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          More than 200 students attended the research paper
+                          writing and citation styling bootcamps this semester.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #10b981"
+                          class="news_card_category"
+                        >
+                          Research Wing
+                        </p>
+                        <p>Jan 10, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Research &amp; Publication Wing Announces Peer Review
+                          Assistance
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          A dedicated desk has been established under the
+                          Research Wing to support student authors with
+                          manuscript reviews.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #b487ce"
+                          class="news_card_category"
+                        >
+                          Campus Update
+                        </p>
+                        <p>Jun 2, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          New Consultation Desk Launched in Block B to Support
+                          Peer Sessions
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          Refurbished CAPS consultation rooms opened to
+                          accommodate rising demand for sessions.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #53900f"
+                          class="news_card_category"
+                        >
+                          Workshops
+                        </p>
+                        <p>Feb 9, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Placement Preparation Boot Camp Organized for Final
+                          Year Batches
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          A comprehensive training session on group discussions
+                          and mock interviews was conducted by CAPS mentors.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #b91c1c"
+                          class="news_card_category"
+                        >
+                          Mentorship
+                        </p>
+                        <p>Feb 6, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Orientation 2026: Welcoming New Student Mentors and
+                          Coordinators
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          CAPS welcomed its new batch of student mentors and
+                          executives to drive academic support on campus.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #2563eb"
+                          class="news_card_category"
+                        >
+                          Writing Centre
+                        </p>
+                        <p>Jan 20, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Writing Centre Workshops Record High Student
+                          Participation
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          More than 200 students attended the research paper
+                          writing and citation styling bootcamps this semester.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    role="listitem"
+                    class="latest-news_slider_slide swiper-slide w-dyn-item"
+                  >
+                    <a
+                      href="#services"
+                      class="news_card_component w-inline-block"
+                    >
+                      <div class="overflow-clip">
+                        <img
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 16 9'%2F%3E"
+                          class="news_card_image img-placeholder-dashed"
+                          alt="[ Image Placeholder ]"
+                          style="
+                            background-color: rgba(148, 163, 184, 0.05);
+                            border: 2px dashed rgba(148, 163, 184, 0.25);
+                            min-height: 180px;
+                            object-fit: cover;
+                          "
+                        />
+                      </div>
+                      <div class="news_card_meta-wrap">
+                        <p
+                          style="background-color: #10b981"
+                          class="news_card_category"
+                        >
+                          Research Wing
+                        </p>
+                        <p>Jan 10, 2026</p>
+                      </div>
+                      <div class="news_card_content-wrap">
+                        <h3 class="news_card_title">
+                          Research &amp; Publication Wing Announces Peer Review
+                          Assistance
+                        </h3>
+                        <div class="spacer-0d5"></div>
+                        <p class="news_card_summary">
+                          A dedicated desk has been established under the
+                          Research Wing to support student authors with
+                          manuscript reviews.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider_nav-wrap">
+                <button data-slider-el="nav-prev" class="slider_nav">
+                  <span
+                    data-wf--global-general-icon--icon="arrow-left"
+                    aria-hidden="true"
+                    STYLE=""
+                    class="icon_svg w-variant-617369d3-7f15-e28e-086f-2519faaf713f"
+                  ></span>
+                </button>
+                <div data-slider-el="pagination" class="slider_pagination-wrap">
+                  <button class="slider_pagination-bullet"></button
+                  ><button class="slider_pagination-bullet is-active"></button
+                  ><button class="slider_pagination-bullet"></button
+                  ><button class="slider_pagination-bullet"></button
+                  ><button class="slider_pagination-bullet"></button>
+                </div>
+                <button data-slider-el="nav-next" class="slider_nav">
+                  <span
+                    data-wf--global-general-icon--icon="arrow-right"
+                    aria-hidden="true"
+                    STYLE=""
+                    class="icon_svg w-variant-dc0bb6e3-9751-5653-6992-a53ae564efab"
+                  ></span>
+                </button>
+              </div>
+              <div
+                data-link-fill-parent="0"
+                data-size="1"
+                data-wf--element-button--type="secondary"
+                class="button_component w-variant-81eb97b7-cf50-1c58-61cc-418fd746197b"
+              >
+                <a
+                  href="https://christuniversity.in"
+                  class="button_link w-inline-block"
+                ></a>
+                <div class="button_bg-hover"></div>
+                <div data-icon-position="1" class="button_content-wrapper">
+                  <p class="button_text">Visit Christ Portal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-wf--element-blurred-gradient-bg-circle--variant="primary"
+          style="inset: auto auto 0 10vw"
+          class="circle-blur-wrapper"
+        >
+          <div
+            style="--opacity: 0.5; --gradient-size: 75vw"
+            class="circle-blur"
+          ></div>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            /* Only show 2 slides each side besides the active one */
+            .latest-news_slider_slide.is-active,
+            .latest-news_slider_slide.is-previous,
+            .latest-news_slider_slide.is-next,
+            .latest-news_slider_slide:has(+ .is-previous),
+            .latest-news_slider_slide.is-next + .latest-news_slider_slide {
+              opacity: 1;
+              pointer-events: auto;
+              visibility: visible;
+            }
+
+            .latest-news_slider_slide {
+              transition-property: transform, opacity;
+            }
+
+            @layer hide-swiper-slides {
+              html:not(.wf-design-mode) .latest-news_slider_slide {
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden;
+              }
+            }
+          </style>
+        </div>
+        <div class="component-script w-embed w-script">
+          <script>
+            loadScript("components/slider.js");
+          </script>
+        </div>
+      </section>
+      <section class="section_next-pages">
+        <div class="padding-global padding-section-large">
+          <div class="container-large">
+            <h3 class="text-align-center">Where to next?</h3>
+            <div class="spacer-2"></div>
+            <div class="next-pages_cards-list">
+              <a
+                href="#campuses"
+                class="next-pages_card_link-wrap w-inline-block"
+                ><div class="next-page-placeholder-mesh">
+                  <div class="next-page-placeholder-orb"></div>
+                  <div class="next-page-placeholder-orb-2"></div>
+                  <div class="next-page-placeholder-grid"></div>
+                </div>
+                <div
+                  data-wf--element-blurred-gradient-bg-circle--variant="dark"
+                  style="inset: auto auto 0 50%"
+                  class="circle-blur-wrapper w-variant-6f064dfd-1406-0d88-452f-96c70391a0f7"
+                >
+                  <div
+                    style="--opacity: 0.4"
+                    class="circle-blur w-variant-6f064dfd-1406-0d88-452f-96c70391a0f7"
+                  ></div>
+                </div>
+                <div class="position-relative">
+                  <h3>Our Campus Coordinator</h3>
+                </div> </a
+              ><a
+                href="#services"
+                class="next-pages_card_link-wrap w-inline-block"
+                ><div class="next-page-placeholder-mesh">
+                  <div
+                    class="next-page-placeholder-orb"
+                    style="animation-delay: -3s"
+                  ></div>
+                  <div
+                    class="next-page-placeholder-orb-2"
+                    style="animation-delay: -3s"
+                  ></div>
+                  <div class="next-page-placeholder-grid"></div>
+                </div>
+                <div
+                  data-wf--element-blurred-gradient-bg-circle--variant="dark"
+                  style="inset: auto auto 0 50%"
+                  class="circle-blur-wrapper w-variant-6f064dfd-1406-0d88-452f-96c70391a0f7"
+                >
+                  <div
+                    style="--opacity: 0.4"
+                    class="circle-blur w-variant-6f064dfd-1406-0d88-452f-96c70391a0f7"
+                  ></div>
+                </div>
+                <div class="position-relative">
+                  <h3>FAQ &amp; Booking Guidelines</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="component-style w-embed">
+          <style>
+            .next-pages_card_link-wrap:is(:hover, :focus-visible) img {
+              transform: scale(1.1);
+            }
+
+            .hero-special_title-accent.is-red {
+              font-size: clamp(2.2rem, 5.5vw, 5.5rem) !important;
+              line-height: 1.05 !important;
+              margin-top: 0.1em !important;
+              padding-left: 5vw !important;
+            }
+          </style>
+        </div>
+      </section>
+    </div>
+  </main>
