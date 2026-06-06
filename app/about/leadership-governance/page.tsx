@@ -1,6 +1,5 @@
-import fs from "fs";
-import path from "path";
 import type { Metadata } from "next";
+import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
 
 export const metadata: Metadata = {
   title: "Leadership & Governance | CAPS Christ University",
@@ -9,8 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default function LeadershipGovernancePage() {
-  const filePath = path.join(process.cwd(), "app/leadership-body.html");
-  const htmlContent = fs.readFileSync(filePath, "utf8");
+  const bodyContent = loadBodyContent("app/about/leadership-governance/body.html");
+  const assembledHtml = assemblePage(bodyContent, "/about/leadership-governance");
 
   return (
     <>
@@ -20,7 +19,7 @@ export default function LeadershipGovernancePage() {
         type="text/css"
       />
       <div
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
+        dangerouslySetInnerHTML={{ __html: assembledHtml }}
         suppressHydrationWarning
       />
     </>

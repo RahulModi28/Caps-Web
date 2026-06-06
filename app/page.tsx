@@ -1,13 +1,12 @@
-import fs from "fs";
-import path from "path";
+import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
 
 export default function Home() {
-  const filePath = path.join(process.cwd(), "app/caps-body.html");
-  const htmlContent = fs.readFileSync(filePath, "utf8");
+  const homeBody = loadBodyContent("app/home-body.html");
+  const assembledHtml = assemblePage(homeBody, "/");
 
   return (
     <div
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
+      dangerouslySetInnerHTML={{ __html: assembledHtml }}
       suppressHydrationWarning
     />
   );
