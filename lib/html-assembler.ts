@@ -220,6 +220,6 @@ export function injectCampusUpdates(html: string, updates: any[]): string {
     </div>
   `).join('\n');
 
-  return replaceInnerDiv(html, 'class="latest-news_slider_wrapper swiper-wrapper"', updatesHtml);
+  return replaceInnerDiv(html, 'class="latest-news_slider_wrapper swiper-wrapper w-dyn-items"', updatesHtml);
 }
 
