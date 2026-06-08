@@ -16,9 +16,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-wf-domain="caps.christuniversity.in"
-      data-wf-page="689b9231663a4f08a91a5edb"
-      data-wf-site="689b9231663a4f08a91a5f03"
       suppressHydrationWarning
     >
       <head>
