@@ -6,9 +6,9 @@ import TeamLeadSlider from "./TeamLeadSlider";
 export const revalidate = 60; // Revalidate page updates every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Leadership & Governance | CAPS Christ University",
+  title: "Leadership | CAPS Christ University",
   description:
-    "Meet the CAPS leadership team of experienced student coordinators, team leads and teacher mentors.",
+    "Meet the CAPS leadership team of experienced student coordinators and team leads.",
 };
 
 const SPLIT_MARKER = "<!--TLS_INSERT_POINT-->";

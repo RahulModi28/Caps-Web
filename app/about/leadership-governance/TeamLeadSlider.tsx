@@ -52,7 +52,7 @@ interface TeamLeadSliderProps {
 
 export default function TeamLeadSlider({
   leads = DEFAULT_LEADS,
-  speed = 42,
+  speed = 80,
   eyebrow = "Outreach & Execution",
   title = "Team Leads",
   subtitle = "Our team leads drive peer coaching sessions, content development, systems administration, and student outreach campaigns.",
