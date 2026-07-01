@@ -103,8 +103,6 @@ export default function TeamLeadSlider({
             </article>
           ))}
         </div>
-        <div className="tls-fade tls-fade-left" aria-hidden="true" />
-        <div className="tls-fade tls-fade-right" aria-hidden="true" />
       </div>
 
       <style jsx>{`
