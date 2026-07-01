@@ -17,22 +17,22 @@ function getInitials(name = "") {
 }
 
 const DEFAULT_LEADS = [
-  { id: 1,  name: "Team Lead 1",  wing: "Learning & Development" },
-  { id: 2,  name: "Team Lead 2",  wing: "Learning & Development" },
-  { id: 3,  name: "Team Lead 3",  wing: "Learning & Development" },
-  { id: 4,  name: "Team Lead 4",  wing: "Learning & Development" },
-  { id: 5,  name: "Team Lead 5",  wing: "Outreach & Campaigns" },
-  { id: 6,  name: "Team Lead 6",  wing: "Outreach & Campaigns" },
-  { id: 7,  name: "Team Lead 7",  wing: "Outreach & Campaigns" },
-  { id: 8,  name: "Team Lead 8",  wing: "Outreach & Campaigns" },
-  { id: 9,  name: "Team Lead 9",  wing: "Systems & Operations" },
-  { id: 10, name: "Team Lead 10", wing: "Systems & Operations" },
-  { id: 11, name: "Team Lead 11", wing: "Systems & Operations" },
-  { id: 12, name: "Team Lead 12", wing: "Systems & Operations" },
-  { id: 13, name: "Team Lead 13", wing: "Content & Media" },
-  { id: 14, name: "Team Lead 14", wing: "Content & Media" },
-  { id: 15, name: "Team Lead 15", wing: "Content & Media" },
-  { id: 16, name: "Team Lead 16", wing: "Content & Media" },
+  { id: 1,  name: "Taanya L",          wing: "Connect Wide" },
+  { id: 2,  name: "Bhadra Mahesh",      wing: "Group Peer Training" },
+  { id: 3,  name: "Shristi Dam",        wing: "Group Peer Training" },
+  { id: 4,  name: "Architha B",         wing: "Learning & Development" },
+  { id: 5,  name: "Sanjna Prasanna",    wing: "Learning & Development" },
+  { id: 6,  name: "Shivam Kanjaria",    wing: "Media & PR" },
+  { id: 7,  name: "Dharma Viradia",     wing: "One on One Peer Training" },
+  { id: 8,  name: "Shreya Datta",       wing: "One on One Peer Training" },
+  { id: 9,  name: "Devansh Bhardwaj",   wing: "Operations & Analytics" },
+  { id: 10, name: "Kasheeka Gupta",     wing: "Operations & Analytics" },
+  { id: 11, name: "Samanthira Dhevi",   wing: "Research & Assessment" },
+  { id: 12, name: "Veer Khanna",        wing: "Tech Tank" },
+  { id: 13, name: "Rahul Modi",         wing: "Tech Tank" },
+  { id: 14, name: "Team Lead 14",       wing: "TBD" },
+  { id: 15, name: "Team Lead 15",       wing: "TBD" },
+  { id: 16, name: "Team Lead 16",       wing: "TBD" },
 ];
 
 interface Lead {
@@ -132,7 +132,7 @@ export default function TeamLeadSlider({
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-family: "Inter", system-ui, sans-serif;
+          font-family: var(--_text-base---font--body), "Inter", system-ui, sans-serif;
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.18em;
@@ -142,7 +142,7 @@ export default function TeamLeadSlider({
         }
         .tls-asterisk { color: var(--purple); font-size: 16px; line-height: 1; }
         .tls-title {
-          font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+          font-family: var(--_text-base---font--display), "Playfair Display", Georgia, serif;
           font-style: italic;
           font-weight: 600;
           font-size: clamp(34px, 5vw, 56px);
@@ -151,7 +151,7 @@ export default function TeamLeadSlider({
           margin: 0 0 18px;
         }
         .tls-subtitle {
-          font-family: "Inter", system-ui, sans-serif;
+          font-family: var(--_text-base---font--body), "Inter", system-ui, sans-serif;
           font-size: 16px;
           line-height: 1.6;
           color: var(--muted);
@@ -204,7 +204,7 @@ export default function TeamLeadSlider({
         }
         .tls-initials {
           position: relative;
-          font-family: "Inter", system-ui, sans-serif;
+          font-family: var(--_text-base---font--body), "Inter", system-ui, sans-serif;
           font-weight: 700;
           font-size: 44px;
           letter-spacing: 0.02em;
@@ -213,7 +213,7 @@ export default function TeamLeadSlider({
         .tls-photo { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; }
         .tls-info { padding: 16px 20px 22px; border-top: 1px solid var(--navy-line); text-align: center; }
         .tls-wing {
-          font-family: "Inter", system-ui, sans-serif;
+          font-family: var(--_text-base---font--body), "Inter", system-ui, sans-serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.14em;
@@ -222,7 +222,7 @@ export default function TeamLeadSlider({
           margin: 0 0 6px;
         }
         .tls-name {
-          font-family: "Playfair Display", Georgia, serif;
+          font-family: var(--_text-base---font--display), "Playfair Display", Georgia, serif;
           font-weight: 600;
           font-size: 18px;
           color: #f4f2ea;
