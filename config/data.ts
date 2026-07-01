@@ -56,9 +56,9 @@ export const campuses: Campus[] = [
   {
     name: "Yeshwanthpur Campus",
     location: "Bangalore",
-    officeAddress: "CAPS Office, Room 227, Block B, Ground Floor",
+    officeAddress: "CAPS Office, Room 409, Block A, Floor 4",
     pageUrl: "https://sites.google.com/christuniversity.in/caps-site-byc/home",
-    coordinates: [13.035857149631507, 77.50593103031467],
+    coordinates: [13.035992, 77.505516],
     displayName: "Bangalore BYC",
     status: "Publish"
   },
