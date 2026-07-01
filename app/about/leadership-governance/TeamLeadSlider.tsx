@@ -222,7 +222,7 @@ export default function TeamLeadSlider({
           margin: 0 0 6px;
         }
         .tls-name {
-          font-family: var(--_text-base---font--display), "Playfair Display", Georgia, serif;
+          font-family: var(--_text-base---font--body), "Inter", system-ui, sans-serif;
           font-weight: 600;
           font-size: 18px;
           color: #f4f2ea;
