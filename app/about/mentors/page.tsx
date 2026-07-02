@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { assemblePage, loadBodyContent } from "@/lib/html-assembler";
+import MentorCardControls from "./MentorCardControls";
 
 export const metadata: Metadata = {
   title: "Mentors | CAPS Christ University",
@@ -12,9 +13,12 @@ export default async function MentorsPage() {
   const assembledHtml = assemblePage(bodyContent, "/about/mentors");
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: assembledHtml }}
-      suppressHydrationWarning
-    />
+    <>
+      <div
+        dangerouslySetInnerHTML={{ __html: assembledHtml }}
+        suppressHydrationWarning
+      />
+      <MentorCardControls />
+    </>
   );
 }

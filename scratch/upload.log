@@ -1,0 +1,6 @@
+◇ injected env (5) from .env.local // tip: ⌘ suppress logs { quiet: true }
+Uploading file to Cloudinary...
+File path: /Users/rahulmodi/Downloads/DSC_3324.JPG
+Upload successful!
+Public ID: caps-website/haran-rp
+Secure URL: https://res.cloudinary.com/douvu5qu2/image/upload/v1783015820/caps-website/haran-rp.jpg

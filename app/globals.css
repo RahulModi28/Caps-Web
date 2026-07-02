@@ -350,12 +350,12 @@ dialog.team_item_info::backdrop {
 
 .placeholder-mesh-orb-1 {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle, rgba(226,183,85,0.8) 0%, rgba(226,183,85,0) 70%) !important;
-  filter: blur(25px);
-  top: -10px;
-  left: -10px;
+  filter: blur(35px);
+  top: -20px;
+  left: -20px;
   opacity: 0.8;
   border-radius: 50%;
   animation: orb-float-1 8s ease-in-out infinite alternate;
@@ -363,12 +363,12 @@ dialog.team_item_info::backdrop {
 
 .placeholder-mesh-orb-2 {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle, rgba(59,130,246,0.8) 0%, rgba(59,130,246,0) 70%) !important;
-  filter: blur(25px);
-  bottom: -10px;
-  right: -10px;
+  filter: blur(35px);
+  bottom: -20px;
+  right: -20px;
   opacity: 0.8;
   border-radius: 50%;
   animation: orb-float-2 8s ease-in-out infinite alternate;
@@ -402,7 +402,7 @@ dialog.team_item_info::backdrop {
 
 .placeholder-mesh-initials {
   font-family: inherit;
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-weight: 700;
   color: #ffffff !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
@@ -413,8 +413,8 @@ dialog.team_item_info::backdrop {
 }
 
 .placeholder-mesh-role {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.5) !important;
